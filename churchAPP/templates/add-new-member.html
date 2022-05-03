@@ -1,0 +1,127 @@
+{% extends "layout.html" %} {% block innerContaint %}
+
+<form method="post">
+    <div class="lg-m-5 m-4">
+
+        <!-- Name -->
+        <div class="col-auto">
+            <label class="sr-only" for="name">Ben Ngafua</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Full name</div>
+                </div>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Ben Ngafua">
+            </div>
+        </div>
+
+        <!-- Gender -->
+        <div class="col-auto py-2">
+            <div style="color: black; font-size: larger;">Gender:</div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="gender1" value="male">
+                <label class="form-check-label" for="gender1">
+              Male
+            </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="gender" value="Female">
+                <label class="form-check-label" for="gender">
+              Female
+            </label>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-auto">
+            <label class="sr-only" for="contact">Contact</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Contact</div>
+                </div>
+                <input type="text" class="form-control" id="contact" name="contact" placeholder="0881000999">
+            </div>
+        </div>
+        <!-- Location -->
+        <div class="col-auto">
+            <label class="sr-only" for="location">location</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Location</div>
+                </div>
+                <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+            </div>
+        </div>
+
+        <!-- Marital Status -->
+        <div class="col-auto form-group">
+            <div style="color: black; font: bolder"><label for="relationship">Marital Status</label></div>
+            <select id="relationship" name="relationship" class="form-control">
+                <option value="" disabled>SELECT</option>
+                <option value="married">Married</option>
+                <option value="single">Single</option>
+                <option value="widow">Widow</option>
+                <option value="widower">Widower</option>
+                <option value="divorce">Divorce</option>
+            </select>
+        </div>
+
+        <!-- Occupation-->
+        <div class="col-auto">
+            <label class="sr-only" for="occupation">occupation</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Occupation</div>
+                </div>
+                <input type="text" class="form-control" id="occupation" name="occupation" placeholder="occupation">
+            </div>
+        </div>
+
+        <!-- Date of Birth-->
+        <div class="col-auto">
+            <label class="sr-only" for="date_of_birth">Date of Birth</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Date of Birth</div>
+                </div>
+                <input type="date" max="2040-12-13" class="form-control" name="date_of_birth" id="date_of_birth" placeholder="dd/mm/yy">
+            </div>
+        </div>
+
+        <!-- Wedding Anniversary-->
+        <div class="col-auto">
+            <label class="sr-only" for="weddingdate">Wedding Anniversary</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Wedding Anniversary</div>
+                </div>
+                <input type="date" class="form-control" name="weddingdate" id="weddingdate" placeholder="dd/mm/yy">
+            </div>
+        </div>
+        <!-- Department -->
+        <div class="col-auto">
+            <label class="sr-only" for="department">department</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Department</div>
+                </div>
+                <input type="text" class="form-control" name="department" id="department" placeholder="Department">
+            </div>
+        </div>
+
+        <!-- Position -->
+        <div class="col-auto">
+            <label class="sr-only" for="role">Position</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Position</div>
+                </div>
+                <input type="text" class="form-control" id="role" name="role" placeholder="Position">
+            </div>
+        </div>
+
+
+    </div>
+    <button type="submit" class="btn cur-p btn-primary">Submit</button>
+</form>
+
+{% endblock %}

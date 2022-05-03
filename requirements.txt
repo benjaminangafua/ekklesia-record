@@ -1,0 +1,8 @@
+Flask
+gunicorn
+jinja2
+psycopg2
+requests
+cs50
+flask-session
+flask-google-login

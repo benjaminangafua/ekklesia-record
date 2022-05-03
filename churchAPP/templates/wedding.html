@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+<!-- Style -->
+
+<!-- end -->
+{% block innerContaint %}
+
+
+
+<div class="row graph mt-5">
+    <div class="col-md-12">
+        <div class="dash_blog_inner">
+            <div class="dash_head center1">
+                <h3><span><i class="fa fa-calendar"></i> {{months[thisMONTH]}} Wedding Anniversary Celebrants</span></h3>
+            </div>
+            <div class="task_list_main">
+                <div class="full graph_head">
+                    <div class="heading1 margin_0">
+                        <h2> + </h2>
+                    </div>
+                </div>
+                <div class="table_section padding_infor_info">
+                    <div class="table-responsive-sm">
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Month</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for person in member %} {% if thisMONTH == person.Month|int %}
+                                <tr>
+                                    <td>{{loop.index}}</td>
+                                    <td>{{person.name}}</td>
+                                    <td>{{person.Day}}</td>
+                                    <td>{{months[person.Month|int]}}</td>
+                                </tr>
+                                {% endif %} {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Individual layout -->
+<div class="col-md-12">
+    <div class="white_shd full">
+        <div class="full price_table padding_infor_info">
+
+            <div class="row">
+                {% for person in member %} {% if thisMONTH == person.Month|int %}
+                <!-- column contact -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
+                    <h4>Come let's celebrate {{person.name}}'s Wedding Anniversary </h4>
+                    <div class="contact_blog">
+                        <h4 class="brief">Digital Strategist</h4>
+                        <div class="contact_inner">
+                            <div class="left">
+                                <h3>{{person.name}}</h3>
+                                <p><strong>About: </strong>Frontend Developer</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fa fa-envelope-o"></i> : test@gmail.com</li>
+                                    <li><i class="fa fa-phone"></i> : 987 654 3210</li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <div class="profile_contacts">
+                                    <img class="img-responsive" src="{{url_for('static', filename='images/layout_img/user_img.jpg')}}" alt="#" />
+                                </div>
+                            </div>
+                            <div class="bottom_list">
+                                <div class="left_rating">
+                                    <p class="ratings">
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star-o"></span></a>
+                                    </p>
+                                </div>
+                                <div class="right_button">
+                                    <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-user">
+                                               </i> <i class="fa fa-comments-o"></i> 
+                                               </button>
+                                    <button type="button" class="btn btn-primary btn-xs">
+                                               <i class="fa fa-user"> </i> View Profile
+                                               </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %} {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

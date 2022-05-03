@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login Church Account</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="../static/17/material-design-iconic-font.min.css">
+    <link rel="shortcut icon" href="../static/images/logo/logo.png" type="image/x-icon">
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="../static/17/style17.css">
+</head>
+
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+    {% if messages %} {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <!-- <strong>Title</strong> -->{{ message }}
+    </div>
+    {% endfor %} {% endif %} {% endwith %} {% block innerContaint %} {% endblock %}
+
+
+    <div class="wrapper form-bg-img">
+        <div class="inner">
+            <h3>Login Form</h3>
+
+            <form method="post">
+                <div class="form-wrapper">
+                    <input type="text" name="username" placeholder="username" class="form-control" required>
+                    <i class="zmdi zmdi-pin-account"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="password" name="password" placeholder="Password" class="form-control" required>
+                    <i class="zmdi zmdi-lock"></i>
+                </div>
+
+                <div class="log-child inner-child">Don't have an account? <a style="text-decoration: none;" href="/register"><em>Register</em></a></div>
+
+                <button style="background-color: rgb(3, 3, 68);" type="submit">Login
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

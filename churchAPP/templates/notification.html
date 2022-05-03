@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+<!-- main -->
+
+{% block innerContaint %}
+
+<div class="container-fluid">
+    <div class="row column1">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="white_shd full margin_bottom_30">
+                <div class="full graph_head center">
+                    <div class="heading1 margin_0">
+                        <h2>Notifications</h2>
+                    </div>
+                </div>
+                <div class="full price_table padding_infor_info">
+
+                    <div class="card" id="center">
+                        <div class="card-body">
+                            <ul>
+                                <li>{% for notice in notifying %} {{notice.member_name}} has pay the amount of {{notice.amount}} as tithe. {% endfor %}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  -->
+{% endblock %}

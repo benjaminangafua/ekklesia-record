@@ -1,0 +1,192 @@
+{% extends "layout.html" %}
+<!-- main -->
+
+{% block innerContaint %}
+
+<!-- dashboard inner -->
+<div class="container-fluid">
+    <div class="row column_title">
+        <div class="col-md-12">
+            <div class="page_title">
+                <h2>Dashboard</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row column1 social_media_section">
+        <div class="col-md-6 col-lg-3">
+            <div class="full socile_icons tw margin_bottom_30">
+                <div class="social_icon">
+                    <h1>Members</h1>
+                </div>
+                <div class="social_cont">
+                    <div class="couter_icon">
+                        <i class="fa fa-users yellow_color"></i>
+                    </div>
+                    <h4>This year: {{memberSum}}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="full socile_icons tw margin_bottom_30">
+                <div class="social_icon">
+                    <h1>Departments </h1>
+                </div>
+                <div class="social_cont">
+
+                    <div class="couter_icon">
+                        <i class="fa fa-object-group yellow_color"></i>
+                    </div>
+                    <h4>Total: {{departmentSum}}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="full socile_icons tw margin_bottom_30">
+                <div class="social_icon">
+                    <h1>Absentees </h1>
+                </div>
+                <div class="social_cont">
+                    <div class="couter_icon">
+                        <i class="fa fa-user-times yellow_color"></i>
+                    </div>
+                    <div>
+                        <h4>Last Week {{absent_percent}}% of {{memberSum}} ({{absence}})</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="full socile_icons tw margin_bottom_30">
+                <div class="social_icon">
+                    <h1>Attendees</h1>
+                </div>
+                <div class="social_cont">
+                    <img src="{{url_for('static', filename='images/layout_img/verified-user.png')}}" width="20%" alt="">
+
+                    <h4> Last week {{present_percent}}% of {{memberSum}}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="full socile_icons tw margin_bottom_30">
+                <div class="social_icon">
+                    <h1>
+                        New members
+                    </h1>
+                </div>
+                <div class="social_cont">
+                    <div class="couter_icon">
+
+                        <i class="fa fa-user-plus yellow_color"></i>
+                    </div>
+                </div>
+                <div class="social_cont">
+                    <ul>
+                        <li>
+                            <h4> {{newmember}}</h4>
+                            <h4> This Month</h4>
+                        </li>
+                        <li id="focus">
+                            <span><strong>{{newmember}}</strong></span>
+                            <strong>This year</strong>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="full socile_icons tw margin_bottom_30">
+                <div class="social_icon">
+                    <h1>Birthday </h1>
+                </div>
+                <div class="social_cont">
+                    <div class="couter_icon">
+                        <i class="fa fa-birthday-cake yellow_color"></i>
+                    </div>
+                    <div class="social_cont">
+                        <ul>
+                            <li>
+                                <h3>{{birth_sum_today}}</h3>
+                                <h4>Today</h4>
+                            </li>
+                            <li id="focus">
+                                <span><strong>{{birth_sum_this_month}}</strong></span>
+                                <strong>This month</strong>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="full socile_icons tw margin_bottom_30">
+                <div class="social_icon">
+                    <h1>Marriage </h1>
+                </div>
+                <div class="social_cont">
+                    <div class="couter_icon">
+                        <i class="fa fa-mars-double yellow_color"></i>
+                    </div>
+                </div>
+                <div class="social_cont">
+                    <ul>
+                        <li>
+                            <h4>0</h4>
+                            <h4>Today</h4>
+                        </li>
+                        <li id="focus">
+                            <span><strong>4</strong></span>
+                            <h4>This month</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="full socile_icons tw margin_bottom_30">
+                <div class="social_icon">
+                    <h1>Follow up</h1>
+                </div>
+                <div style="text-align: center; padding-top: 10px;">
+
+                    <img src="{{url_for('static', filename='images/layout_img/follow.png')}}" width="20%">
+
+                </div>
+                <div class="social_cont">
+                    <ul>
+                        <li>
+                            <span><strong>5</strong></span>
+                            <h4>Done follow-up</h4>
+                        </li>
+                        <li id="focus">
+                            <span><strong>4</strong></span>
+                            <h4>Need follow-up</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="full socile_icons tw margin_bottom_30">
+                <div class="social_icon">
+                    <h1>Anniversary's Date</h1>
+                </div>
+                <div style="text-align: center; padding-top: 10px;">
+
+                    <img src="{{url_for('static', filename='images/layout_img/follow.png')}}" width="20%">
+
+                </div>
+                <div class="social_cont">
+
+                    <strong>{{anniversary}}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end dashboard inner -->
+
+{% endblock %} {% block index %} {% endblock %}

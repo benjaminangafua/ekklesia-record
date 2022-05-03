@@ -1,0 +1,124 @@
+<!-- dashboard inner -->
+{% extends "layout.html" %}
+<!-- main -->
+
+{% block innerContaint %}
+
+<div class="container-fluid">
+    <div class="row column_title">
+        <div class="col-md-12">
+            <div class="page_title">
+                <h2>GIVING</h2>
+            </div>
+        </div>
+    </div>
+    <!-- row -->
+    <div class="row column1">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="white_shd full margin_bottom_30">
+                <div class="full graph_head center">
+                    <div class="heading1 margin_0">
+                        <h2>PAYMENT</h2>
+                    </div>
+                </div>
+                <div class="full price_table padding_infor_info">
+                    <div class="row">
+                        <!-- user profile section -->
+                        <!-- profile image -->
+                        <div class="col-lg-12">
+                            <div>
+                                <h1><strong>{{church}}</strong></h1>
+                                <ul>
+                                    <li class="py-2">Account Number:</li>
+                                    <li class="py-2">Mobile Money Number: +231881-000-111</li>
+                                    <li class="py-2">Email: church@gmail.com</li>
+                                </ul>
+                            </div>
+                            <!-- profile contact section -->
+                            <div class="full inner_elements margin_top_30">
+                                <div class="tab_style2">
+                                    <div class="tabbar">
+                                        <nav>
+                                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#offering" role="tab" aria-selected="true"><strong >General Offering</strong> </a>
+                                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#tithe" role="tab" aria-selected="false"><strong >Tithe</strong> </a>
+                                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#due" role="tab" aria-selected="false"><strong > Commitment </strong></a>
+                                            </div>
+                                        </nav>
+                                        <div class="tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade show active" id="offering" role="tabpanel" aria-labelledby="nav-home-tab">
+                                                <div class="msg_list_main">
+
+                                                    <form action="" method="post">
+                                                        <div>
+                                                            <h3>Offering</h3>
+                                                            <br>
+                                                            <label for="name">Your Name: </label>
+                                                            <input class="input-group" type="text" name="name" id="name" autofocus autocomplete="off"> <br>
+                                                            <label for="amount">Amount: </label>
+                                                            <input class="input-group" type="text" name="amount" id="amount"> <br>
+                                                            <label for="account">Enter Account: </label>
+                                                            <input class="input-group" type="text" name="account" id="account" autofocus autocomplete="off"> <br> OR
+
+                                                            <label for="mobile_number">Mobile Number: </label>
+                                                            <input class="input-group" type="text" name="account" id="mobile_number" autofocus autocomplete="off"> <br><br>
+                                                            <button type="submit" class="btn cur-p btn-primary">Submit</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tithe" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                                <div>
+
+                                                    <form action="" method="post">
+                                                        <div>
+                                                            <h3>Tithe</h3>
+                                                            <br>
+                                                            <label for="name">Your Name: </label>
+                                                            <input class="input-group" type="text" name="name" id="name" autofocus autocomplete="off"> <br>
+                                                            <label for="amount">Amount: </label>
+                                                            <input class="input-group" type="text" name="amount" id="amount"> <br>
+                                                            <label for="account">Enter Account: </label>
+                                                            <input class="input-group" type="text" name="account" id="account" autofocus autocomplete="off"> <br> OR
+
+                                                            <label for="mobile_number">Mobile Number: </label>
+                                                            <input class="input-group" type="text" name="account" id="mobile_number" autofocus autocomplete="off"> <br><br>
+                                                            <button type="submit" class="btn cur-p btn-primary">Submit</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="due" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                                <form action="" method="post">
+                                                    <div>
+                                                        <h3>Commitment</h3> <br>
+                                                        <label for="name">Your Name: </label>
+                                                        <input class="input-group" type="text" name="name" id="name" autofocus autocomplete="off"> <br>
+                                                        <label for="amount">Amount: </label>
+                                                        <input class="input-group" type="text" name="amount" id="amount"> <br>
+                                                        <label for="account">Enter Account: </label>
+                                                        <input class="input-group" type="text" name="account" id="account" autofocus autocomplete="off"> <br> OR
+
+                                                        <label for="mobile_number">Mobile Number: </label>
+                                                        <input class="input-group" type="text" name="account" id="mobile_number" autofocus autocomplete="off"> <br><br>
+                                                        <button type="submit" class="btn cur-p btn-primary">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end user profile section -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <!-- end row -->
+    </div>
+
+</div>
+{% endblock %}
