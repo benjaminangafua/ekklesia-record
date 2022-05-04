@@ -25,12 +25,27 @@ def landingPage():
     #     return render_template("landing-index.html", memberSum=memberSum, newmember=newmember, row=row)
     # else:
     return render_template("index.html")
+
 # dashboard
 @views.route("/dashboard")
 @login_required
 def home(): 
-    # Birthday's section
+
+
+
+    #Total member
     memberSum = db.execute('SELECT COUNT(*) FROM members')[0]['COUNT(*)']
+
+    #Total men
+    menSum = db.execute('SELECT COUNT(*) FROM members where gender ="male"')[0]['COUNT(*)']
+
+    #Total women
+    womenSum = db.execute('SELECT COUNT(*) FROM members where gender ="female"')[0]['COUNT(*)']
+
+    #Total Children
+    childrenSum = db.execute('SELECT COUNT(*) FROM members')[0]['COUNT(*)']
+
+    # Birthday's section
     
     # Department's Section
     departmentSum = db.execute('SELECT COUNT(DISTINCT(department)) FROM members')[0]['COUNT(DISTINCT(department))']
@@ -53,29 +68,12 @@ def home():
             if month["Month"] == this_month:
                birth_month = month["Month"]
 
-        # Attendance
-        attendance = int(db.execute("SELECT total_attendance FROM attendance")[0]["total_attendance"])
-        absence = 0
-        if len(db.execute("SELECT * FROM members")) > 0:
-
-            floating_pre = (attendance * 100) / int(memberSum)
-            present_percent = float("{:.2f}".format(floating_pre))
-            # Absence
-
-            absence = int(memberSum) - attendance
-            floating = (absence * 100) / int(memberSum)
-            absent_percent = float("{:.2f}".format(floating))
-        else:
-            present_percent = 0
-            absent_percent = 0
  
         newmember = db.execute("SELECT COUNT(*) FROM new_convert")[0]['COUNT(*)']
         # Member's Section
         return render_template("dashboard-index.html", 
         birth_sum_today=birth_day, birth_sum_this_month=birth_month, newmember=newmember,
-        departmentSum=departmentSum, memberSum=memberSum, attendance=attendance,
-         absence=absence, absent_percent=absent_percent, present_percent=present_percent,
-         church=churchName())
+        departmentSum=departmentSum, memberSum=memberSum,church=churchName())
         
     return render_template("dashboard-index.html", departmentSum=departmentSum, memberSum=memberSum)
 
@@ -245,46 +243,13 @@ def visitors():
 
 # Birthday list
 @views.route("/birthday")
-# @login_required
+@login_required
 def birthday():
     # Months for birthday
     months = ["1", "January","February","March","April", "May","June","July","August","September", "October","November","December"]
     this_month = int(db.execute("SELECT strftime('%m','now');")[0]["strftime('%m','now')"])
     birth_rec = db.execute("SELECT name, strftime('%Y',date_of_birth) as 'Year', strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day'FROM members;")
     return render_template("birthday.html", member=birth_rec, thisMONTH=this_month, months=months)
-
-# wedding list
-@views.route("/wedding")
-@login_required
-def weddingAnniversary():
-    # Months for wedding
-    months = ["1", "January","February","March","April", "May","June","July","August","September", "October","November","December"]
-    this_month = int(db.execute("SELECT strftime('%m','now');")[0]["strftime('%m','now')"])
-    birth_rec = db.execute("SELECT name, strftime('%Y',wedding_anniversary) as 'Year', strftime('%m',wedding_anniversary) as 'Month', strftime('%d',wedding_anniversary) as 'Day'FROM members;")
-    return render_template("wedding.html", member=birth_rec, thisMONTH=this_month, months=months)
-
-# create attendance
-@views.route("/new-attendance", methods=["GET", "POST"])
-@login_required
-def takeAttendance():
-    member_names = db.execute("SELECT DISTINCT(name), id FROM members")
-    if request.method == "POST":
-        num = request.form.getlist("num")
-
-        # Validate checkboxes avoiding empty
-        if not num:
-            flash("Invalid attendant taking!", category="danger")
-        total_attendance = len(num)
-                
-        # Check for attendance is taken
-        if not num:
-            flash("Num field empty.", category="danger")
-        # Loop through the attendance , total_attendance=:total, total=total_attendance
-        for name in num:
-            db.execute("UPDATE attendance SET name=:name, total_attendance=:total, date=date('now') WHERE id >= 0",total=total_attendance,  name=name)
-            return redirect("/dashboard")
-
-    return render_template("new-attendance.html", member_names=member_names)
 
 # Contact
 @views.route('/contact')
@@ -299,15 +264,15 @@ def dashboard():
     return render_template('dashboard-index.html')
 
 # events field
-@views.route("/events")
-def events():
-    months = ["1", "January","February","March","April", "May","June","July","August","September", "October","November","December"]
-    this_month = int(db.execute("SELECT strftime('%m','now');")[0]["strftime('%m','now')"])
-    birth_rec = db.execute("SELECT name, strftime('%Y',date_of_birth) as 'Year', strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day'FROM members;")
-    print(f"----------->>>>>>{birth_rec}<<<<<---------------{this_month}")
-    wedding_rec = db.execute("SELECT name, strftime('%Y',wedding_anniversary) as 'Year', strftime('%m',wedding_anniversary) as 'Month', strftime('%d',wedding_anniversary) as 'Day'FROM members;")
+# @views.route("/events")
+# def events():
+#     months = ["1", "January","February","March","April", "May","June","July","August","September", "October","November","December"]
+#     this_month = int(db.execute("SELECT strftime('%m','now');")[0]["strftime('%m','now')"])
+#     birth_rec = db.execute("SELECT name, strftime('%Y',date_of_birth) as 'Year', strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day'FROM members;")
+#     print(f"----------->>>>>>{birth_rec}<<<<<---------------{this_month}")
+#     wedding_rec = db.execute("SELECT name, strftime('%Y',wedding_anniversary) as 'Year', strftime('%m',wedding_anniversary) as 'Month', strftime('%d',wedding_anniversary) as 'Day'FROM members;")
     
-    return render_template("events.html", member=birth_rec,wedding=wedding_rec, thisMONTH=this_month, months=months)
+#     return render_template("events.html", member=birth_rec,wedding=wedding_rec, thisMONTH=this_month, months=months)
  
 # use's -profie
 @views.route('/profile')
