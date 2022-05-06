@@ -251,39 +251,6 @@ def new_convert():
             return redirect("/convert")
     return render_template("add-new-convert.html")
 
-# offering Form
-@views.route('/offering', methods=["GET", "POST"])
-@login_required
-def payOffering():
-    if request.method == "POST":
-        name = request.form.get("name")
-        amount = request.form.get("amount")
-        number = request.form.get("account")
-        if len(db.execute("SELECT * FROM account")) != 0 and len(db.execute("SELECT * FROM offering")) !=0: 
-            
-            data = db.execute("SELECT name FROM offering")[0]["name"]
-
-            # Validate first timer's form 
-            if not name:
-                flash("Invalid name!", category="danger")
-            elif not amount:
-                flash("Invalid amount!", category="danger")
-            elif not contact or len(contact)< 10:
-                flash("Invalid contact!", category="danger")
-            elif not number:
-                flash("Invalid number!", category="danger")
-
-            elif data == name:
-                db.execute("UPDATE offering SET member_name=:name, amount=:amount, number=number, pay_day=date('now') WHERE id >= 0",name= name, amount=amount, number=number)
-                return redirect("/dashboard")
-            
-            db.execute("INSERT INTO offering(member_name, amount, number, pay_day) VALUES(?, ?, ?, date('now'))", name, amount, number)
-            return redirect("/dashboard")
-        else:
-            db.execute("INSERT INTO offering(member_name, amount, number, pay_day) VALUES(?, ?, ?, date('now'))", name, amount, number)
-            return redirect("/dashboard")
-    return render_template("offering.html", church=churchName())
-
 # Admin profie
 @views.route('/profile')
 @login_required
@@ -296,19 +263,6 @@ def profile():
 def setting():
     return render_template('settings.html')
 
-# send notification
-@views.app_context_processor
-def notifyUpdate():
-    notify = len(db.execute("SELECT * FROM offering;"))
-    return  dict(notify=notify)
-    
-# render notification template
-@views.route("/notification")
-@login_required
-def notification():
-    render_offering = db.execute("SELECT * FROM offering ORDER BY pay_day DESC;")
-    # db.execute("DELETE FROM offering WHERE id > 0")
-    return render_template("notification.html", notifying=render_offering)
 
 # ------------------------------------------------------------------------------ Builder ---------------------------------------
 
