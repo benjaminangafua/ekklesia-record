@@ -1217,8 +1217,6 @@ a[data-toggle="collapse"] {
     margin-top: 10px;
 }
 
-#rebenue {}
-
 .graph_revenue {
     padding: 0;
     margin-top: 0;
@@ -1471,26 +1469,9 @@ a[data-toggle="collapse"] {
     width: 100%;
     text-align: center;
     font-size: 45px;
-    background: black;
     padding: 10px 0 8px;
     color: #fff;
     background: #222;
-}
-
-.fb .social_icon {
-    background: #3b5998;
-}
-
-.tw .social_icon {
-    background: #070122;
-}
-
-.linked .social_icon {
-    background: #0077B5;
-}
-
-.google_p .social_icon {
-    background: #d34836;
 }
 
 .socile_icons .social_cont {
@@ -2411,8 +2392,6 @@ h2.invoice_head small {
     background-color: #fff;
 }
 
-.table_row tbody {}
-
 .table_row tbody tr {
     border: none;
 }
@@ -2644,8 +2623,6 @@ ul.inbox-nav li a i {
     position: relative;
     top: 1px;
 }
-
-ul.inbox-nav li a span.label {}
 
 ul.labels-info li h4 {
     color: #5c5c5e;
@@ -3176,8 +3153,6 @@ ul.labels-category li p {
     font-size: 16px;
     padding: 7px 0;
 }
-
-.bottom_list .left_rating p.ratings a {}
 
 .fa.fa-star {
     color: #ff9800;

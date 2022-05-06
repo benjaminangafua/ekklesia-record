@@ -46,6 +46,20 @@
                                     <td>{{member.date_of_birth}}</td>
                                     <td>{{member.joined_date}}</td>
                                 </tr>
+                                {% endfor %} {% for newMember in newMember %}
+                                <tr>
+                                    <td>{{newMember.id}}</td>
+                                    <td>{{newMember.name}} </td>
+                                    <td>{{newMember.gender}}</td>
+                                    <td>{{newMember.location}}</td>
+                                    <td>{{newMember.contact}}</td>
+                                    <td>{{newMember.relationship}}</td>
+                                    <td>{{newMember.occupation}}</td>
+                                    <td>{{newMember.department}}</td>
+                                    <td>{{newMember.wedding_anniversary}}</td>
+                                    <td>{{newMember.date_of_birth}}</td>
+                                    <td>{{newMember.joined_date}}</td>
+                                </tr>
                                 {% endfor %}
                             </tbody>
                         </table>
