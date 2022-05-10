@@ -17,68 +17,72 @@ def registerAccount():
     # Create church account
     if request.method == "POST":
         
-        fullname = request.form.get("full_name")
-        email = request.form.get("email")
-        password =generate_password_hash(request.form.get("password"), "sha256")
-        phone = msisdn_sanitizer(request.form.get("phone"), "+231")
-        confirm_password = request.form.get("confirm_password")
-
+        register = dict(
+        fullname = request.form.get("full_name"),
+        email = request.form.get("email"),
+        password =generate_password_hash(request.form.get("password"), "sha256"),
+        phone = msisdn_sanitizer(request.form.get("phone"), "+231"),
+        confirm_password = request.form.get("confirm_password"),
+        address = request.form.get("address"),
+        admin_name = request.form.get("admin_name")
+        )
+        print(register)
         if len(db.execute("SELECT * FROM account")) > 0:
-            data = db.execute("SELECT name FROM account WHERE name=?", fullname)
+            data = db.execute("SELECT name FROM account WHERE name=?", register["fullname"])
 
-            print(data, fullname)
-            if not fullname:
+            print(data, register["fullname"])
+            if not register["fullname"]:
                 flash("Invalid name!", category="danger")
 
-            elif len(fullname) < 2:
+            elif len(register["fullname"]) < 2:
                 flash("Full name must be more than 2 characters!", category="danger")
 
-            elif request.form.get("password") != confirm_password:
+            elif request.form.get("password") != register["confirm_password"]:
                 flash("Password not confirm!", category="danger")
             
             # Add account if not exist
 
-            elif data != fullname:  
-                db.execute("INSERT INTO account(name, email, password, phone) VALUES(?, ?, ?, ?)", fullname, email, password, phone)
+            elif data != register["fullname"]:  
+                db.execute("INSERT INTO account(name, mail, password, phone, admin_name, address) VALUES(?, ?, ?, ?, ?, ?)", register["fullname"], register["email"], register["password"], register["phone"], register["admin_name"], register["address"])
                 flash("Church system successfull created!", category="success")
                 return redirect("/login") 
             else:
                 flash("Church already exist!", category="danger")
-                return render_template("register.html")  
+                return render_template("registerhtml")  
         else:
-            db.execute("INSERT INTO account(name, email, password, phone) VALUES(?, ?, ?, ?)", fullname, email, password, phone)
+            db.execute("INSERT INTO account(name, mail, password, phone, admin_name, address) VALUES(?, ?, ?, ?, ?, ?)", register["fullname"], register["email"], register["password"], register["phone"], register["admin_name"], register["address"])
             flash("Church system successfull created!", category="success")
-            
             return redirect("/login")
-    return render_template("register.html")     
+    
+    return render_template("registerhtml")     
   
 # Sign in
 @auth.route("/login", methods=["GET", "POST"])
 def loginAccount():
     if request.method == "POST":
         session.permanent=True
-        
-        username = request.form.get("username")
+        log = dict(
+        username = request.form.get("username"),
         password =request.form.get("password")
-        print(password)
-
-        if len(db.execute("SELECT * FROM account")) != 0:
+        )
+    
+        if len(db.execute("SELECT * FROM account")) > 0:
             
-            user = db.execute("SELECT id, name, password  FROM account WHERE name = ?", username)[0]
+            user = db.execute("SELECT * FROM account WHERE name like ?", log["username"])[0]
+            print(user)
+            if len(log["username"]) < 10 and len(log["username"]) > 13:
+                flash("Invalid log.username!", category="danger")
 
-            if len(username) < 10 and len(username) > 13:
-                flash("Invalid username!", category="danger")
-
-            elif not password:
+            elif not log["password"]:
                 flash("Invalid password!", category="danger")
 
             elif user is None:
                 flash("User not provided", category="danger")
 
-            elif  not check_password_hash(user["password"], password):
+            elif  not check_password_hash(user["password"], log["password"]):
                 flash("Invalid Passoword!", category="danger")
             else:
-                session["user_id"] = user["id"]
+                session["user_id"] = user["account_id"]
                 flash("Login was successful", category="success")
                 return redirect("/dashboard")
         else:
@@ -94,7 +98,7 @@ def load_logged_in_user():
         g.user = None
     else:
         g.user = db.execute(
-            'SELECT * FROM account WHERE id = ?', (user_id,)
+            'SELECT * FROM account WHERE account_id = ?', (user_id,)
         )[0]
 
 # Log in required

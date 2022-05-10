@@ -21,44 +21,24 @@
                                     <th>No.</th>
                                     <th>Name</th>
                                     <th>Gender</th>
-                                    <th>Location</th>
+                                    <th>Address</th>
                                     <th>Contact</th>
-                                    <th>Marital Status</th>
-                                    <th>Occupation</th>
                                     <th>Group</th>
-                                    <th>Wedded Date</th>
                                     <th>DOB</th>
-                                    <th>Date of Join</th>
+                                    <th>Date Of Join</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {% for member in members %}
                                 <tr>
-                                    <td>{{member.id}}.</td>
-                                    <td>{{member.name}}</td>
+                                    <td>{{member.member_id}}</td>
+                                    <td>{{member.name}} </td>
                                     <td>{{member.gender}}</td>
-                                    <td>{{member.location}}</td>
+                                    <td>{{member.address}}</td>
                                     <td>{{member.contact}}</td>
-                                    <td>{{member.relationship}}</td>
-                                    <td>{{member.occupation}}</td>
-                                    <td>{{member.department}}</td>
-                                    <td>{{member.wedding_anniversary}}</td>
+                                    <td>{{member.department_group}}</td>
                                     <td>{{member.date_of_birth}}</td>
                                     <td>{{member.joined_date}}</td>
-                                </tr>
-                                {% endfor %} {% for newMember in newMember %}
-                                <tr>
-                                    <td>{{newMember.id}}</td>
-                                    <td>{{newMember.name}} </td>
-                                    <td>{{newMember.gender}}</td>
-                                    <td>{{newMember.location}}</td>
-                                    <td>{{newMember.contact}}</td>
-                                    <td>{{newMember.relationship}}</td>
-                                    <td>{{newMember.occupation}}</td>
-                                    <td>{{newMember.department}}</td>
-                                    <td>{{newMember.wedding_anniversary}}</td>
-                                    <td>{{newMember.date_of_birth}}</td>
-                                    <td>{{newMember.joined_date}}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

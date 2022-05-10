@@ -30,7 +30,16 @@
             </label>
             </div>
         </div>
-
+        <!-- Email -->
+        <div class="col-auto">
+            <label class="sr-only" for="mail">E-mail</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">E-mail</div>
+                </div>
+                <input type="text" class="form-control" id="mail" name="mail" placeholder="0881000999">
+            </div>
+        </div>
         <!-- Contact -->
         <div class="col-auto">
             <label class="sr-only" for="contact">Contact</label>
@@ -41,40 +50,17 @@
                 <input type="text" class="form-control" id="contact" name="contact" placeholder="0881000999">
             </div>
         </div>
-        <!-- Location -->
+        <!-- Address -->
         <div class="col-auto">
-            <label class="sr-only" for="location">location</label>
+            <label class="sr-only" for="address">Address</label>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
-                    <div class="input-group-text">Location</div>
+                    <div class="input-group-text">Address</div>
                 </div>
-                <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+                <input type="text" class="form-control" name="address" id="address" placeholder="Address">
             </div>
         </div>
 
-        <!-- Marital Status -->
-        <div class="col-auto form-group">
-            <div style="color: black; font: bolder"><label for="relationship">Marital Status</label></div>
-            <select id="relationship" name="relationship" class="form-control">
-                <option value="" disabled>SELECT</option>
-                <option value="married">Married</option>
-                <option value="single">Single</option>
-                <option value="widow">Widow</option>
-                <option value="widower">Widower</option>
-                <option value="divorce">Divorce</option>
-            </select>
-        </div>
-
-        <!-- Occupation-->
-        <div class="col-auto">
-            <label class="sr-only" for="occupation">occupation</label>
-            <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">Occupation</div>
-                </div>
-                <input type="text" class="form-control" id="occupation" name="occupation" placeholder="occupation">
-            </div>
-        </div>
 
         <!-- Date of Birth-->
         <div class="col-auto">
@@ -87,16 +73,6 @@
             </div>
         </div>
 
-        <!-- Wedding Anniversary-->
-        <div class="col-auto">
-            <label class="sr-only" for="weddingdate">Wedding Anniversary</label>
-            <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">Wedding Anniversary</div>
-                </div>
-                <input type="date" class="form-control" name="weddingdate" id="weddingdate" placeholder="dd/mm/yy">
-            </div>
-        </div>
         <!-- Department -->
         <div class="col-auto">
             <label class="sr-only" for="department">department</label>
@@ -108,14 +84,14 @@
             </div>
         </div>
 
-        <!-- Position -->
+        <!-- Status -->
         <div class="col-auto">
-            <label class="sr-only" for="role">Position</label>
+            <label class="sr-only" for="role">Join Status</label>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
-                    <div class="input-group-text">Position</div>
+                    <div class="input-group-text">Join Status</div>
                 </div>
-                <input type="text" class="form-control" id="role" name="role" placeholder="Position">
+                <input type="text" class="form-control" title="If member, specified position. If not new convert, or just new member" id="role" name="join_status" placeholder="Position">
             </div>
         </div>
 
