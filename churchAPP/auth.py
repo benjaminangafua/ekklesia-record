@@ -26,11 +26,10 @@ def registerAccount():
         address = request.form.get("address"),
         admin_name = request.form.get("admin_name")
         )
-        print(register)
+        
         if len(db.execute("SELECT * FROM account")) > 0:
             data = db.execute("SELECT name FROM account WHERE name=?", register["fullname"])
 
-            print(data, register["fullname"])
             if not register["fullname"]:
                 flash("Invalid name!", category="danger")
 
@@ -69,7 +68,7 @@ def loginAccount():
         if len(db.execute("SELECT * FROM account")) > 0:
             
             user = db.execute("SELECT * FROM account WHERE name like ?", log["username"])[0]
-            print(user)
+            
             if len(log["username"]) < 10 and len(log["username"]) > 13:
                 flash("Invalid log.username!", category="danger")
 

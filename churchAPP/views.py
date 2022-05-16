@@ -32,59 +32,71 @@ def churchId():
 @login_required
 def home(): 
     # Query church
-    church = db.execute("SELECT name FROM account")
-
     #Total member
-    memberSum = db.execute('SELECT COUNT(*) FROM members WHERE account_id=?', churchId())[0]['COUNT(*)']
+    memberSum = len(db.execute('SELECT name FROM members WHERE account_id=?', churchId()))
     
     #Total men
-    menSum = db.execute('SELECT COUNT(*) FROM members WHERE gender LIKE "male" AND account_id=?', churchId())[0]['COUNT(*)']
+    menSum = len(db.execute('SELECT * FROM members WHERE gender LIKE "male" AND account_id=?', churchId()))
 
     #Total women
-    womenSum = db.execute('SELECT COUNT(*) FROM members WHERE gender LIKE "female" AND account_id=?', churchId())[0]['COUNT(*)']
+    womenSum = len(db.execute('SELECT name FROM members WHERE gender LIKE "female" AND account_id=?', churchId()))
 
     #Total Children
-    childrenSum = db.execute('SELECT COUNT(*) FROM members WHERE account_id=?', churchId())[0]['COUNT(*)']
+    children = db.execute(f"SELECT strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE account_id=?", churchId())
     
     # Department's Section
     departmentSum = db.execute('SELECT COUNT(DISTINCT(department_group)) FROM members WHERE account_id=?', churchId())[0]['COUNT(DISTINCT(department_group))']
+    
+    # Birthday entry
+    currentDate =  db.execute("SELECT  strftime('%Y','now') as 'ThisYear', strftime('%m','now') as 'Month', strftime('%d','now') as 'Day'")[0]
+    this_year = currentDate["ThisYear"]
+    this_month = currentDate["Month"]
+    today = currentDate["Day"]
+    birth = db.execute(f"SELECT strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE account_id=?", churchId())
+                    
 
-    if len(church) > 0:
+    # New Member
+    countConvert = db.execute("SELECT strftime('%Y',date_of_birth) as 'Year', strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE join_status LIKE 'new convert' AND account_id=?", churchId())[0]
+    male = db.execute("SELECT COUNT(*) FROM members WHERE gender LIKE 'male' AND join_status LIKE 'new convert' AND account_id=?", churchId())[0]['COUNT(*)']
+    female = db.execute("SELECT COUNT(*) FROM members  WHERE gender LIKE 'female' AND join_status LIKE 'new convert' AND account_id=?", churchId())[0]['COUNT(*)']
+   
+    
+    # Member's Section
+    menSum+=male
+    womenSum+=female
+    birth_sum_today=getADay(today, birth, memberSum)
+    
+    return render_template("dashboard-index.html", 
+    birth_sum_today=getADay(today, birth, memberSum), birth_sum_this_month=0, convertYear=getYear(this_year, countConvert["Year"], memberSum), convertMonth=getMonth(this_month, countConvert["Month"], memberSum),
+    departmentSum=departmentSum, men=menSum, women=womenSum, memberSum=memberSum,church=churchName())
 
-        for name in church:
-            if name == church:
-                
-                # Birthday entry
-                this_month = int(db.execute("SELECT strftime('%m','now');")[0]["strftime('%m','now')"])
-                today = int(db.execute("SELECT strftime('%d','now');")[0]["strftime('%d','now')"])
-                birth = db.execute(f"SELECT strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM WHERE account_id=?", churchId())
-                
-                # Number of birthdays today
-                birth_day = 0
-                for day in birth:
-                    if day["Day"] == today:
-                        birth_day= day["Day"]
+def getYear(This_year, Db_Year,total_member ):
+    year = 0    
+    if int(Db_Year) == This_year:
+        year = total_member
+        return year
+    else:
+        return year
 
-                # Number of birthdays this month
-                birth_month = 0
-                for month in birth:
-                    if month["Month"] == this_month:
-                        birth_month = month["Month"]
+def getMonth(This_Month, Db_Month,total_member):
+    birth_month = 0
+    if int(This_Month) == int(Db_Month):
+        birth_month = total_member
+        return birth_month
+    else:
+        return birth_month
 
-                newmember = db.execute("SELECT COUNT(*) FROM members WHERE join_status LIKE 'new convert' AND   WHERE account_id=?", churchId())[0]['COUNT(*)']
-                male = db.execute("SELECT COUNT(*) FROM members WHERE gender LIKE 'male' AND join_status LIKE 'new convert'")[0]['COUNT(*)']
-                female = db.execute("SELECT COUNT(*) FROM members  WHERE gender LIKE 'female' AND join_status LIKE 'new convert'")[0]['COUNT(*)']
-                
-                # Member's Section
-                memberSum += newmember
-                menSum+=male
-                womenSum+=female
+def getADay(today, Db_Day, total_member):
+    birth_day = 0
+    
+    for day in Db_Day:
+        if int(day["Day"]) == int(today):
+            
+            birth_day= int(total_member)
 
-                return render_template("dashboard-index.html", 
-                birth_sum_today=birth_day, birth_sum_this_month=birth_month, newmember=newmember,
-                departmentSum=departmentSum, men=menSum, women=womenSum, memberSum=memberSum,church=churchName())
-        
-    return render_template("dashboard-index.html", departmentSum=departmentSum,  men=menSum, women=womenSum, memberSum=memberSum,church=churchName())
+            return birth_day
+        else:
+            return birth_day
 
 # Display members
 @views.route("/member")
@@ -119,20 +131,7 @@ def createMember():
         mail = request.form.get("mail")
         join_status = request.form.get("join_status")
         
-        find_form = dict(
-
-        name = request.form.get("name"),
-        address = request.form.get("address"),
-        date_of_birth = request.form.get("date_of_birth"),
-        gender = request.form.get("gender"),
-        contact = request.form.get("contact"),
-        department = request.form.get("department"),
-        join_status = request.form.get("join_status"),
-        mail = request.form.get("mail")
-        )
-        print(find_form)
         # Check for existing church and members
-        
         if len(db.execute("SELECT * FROM account")) > 0 and len(db.execute("SELECT * FROM members  WHERE account_id=?", churchId())) > 0: 
 
             member_name = db.execute("SELECT name FROM members WHERE account_id=?", churchId())[0]["name"]
