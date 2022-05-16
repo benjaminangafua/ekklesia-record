@@ -66,8 +66,26 @@ def home():
     womenSum+=female
     birth_sum_today=getADay(today, birth, memberSum)
     
+    data = [
+            ('Jan',  898),
+            ('Feb', 732),
+            ('Mar', 653),
+            ('Apr', 212),
+            ('May', 334),
+            ('Jun', 993),
+            ('Jul', 234),
+            ('Aug', 887),
+            ('Sept', 653),
+            ('Oct', 567),
+            ('Nov', 498),
+            ('Dec', 1993),
+        ]
+
+    labels = [row[0] for row in data]
+    values = [row[1] for row in data]
+
     return render_template("dashboard-index.html", 
-    birth_sum_today=getADay(today, birth, memberSum), birth_sum_this_month=0, convertYear=getYear(this_year, countConvert["Year"], memberSum), convertMonth=getMonth(this_month, countConvert["Month"], memberSum),
+    birth_sum_today=getADay(today, birth, memberSum), birth_sum_this_month=0, label=labels, value=values, convertYear=getYear(this_year, countConvert["Year"], memberSum), convertMonth=getMonth(this_month, countConvert["Month"], memberSum),
     departmentSum=departmentSum, men=menSum, women=womenSum, memberSum=memberSum,church=churchName())
 
 def getYear(This_year, Db_Year,total_member ):

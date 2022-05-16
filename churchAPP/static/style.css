@@ -1095,7 +1095,7 @@ a[data-toggle="collapse"] {
     font-size: 21px;
     font-weight: 500;
     text-transform: none;
-    color: #222;
+    color: #070122;
 }
 
 .page_menu_cont {
@@ -1471,7 +1471,7 @@ a[data-toggle="collapse"] {
     font-size: 45px;
     padding: 10px 0 8px;
     color: #fff;
-    background: #222;
+    background: #070122;
 }
 
 .socile_icons .social_cont {
@@ -2333,7 +2333,7 @@ i.icon {
 h2.invoice_head {
     font-size: 22px;
     font-weight: 500;
-    color: #222;
+    color: #070122;
 }
 
 h2.invoice_head small {
@@ -2698,7 +2698,7 @@ ul.labels-info li a i {
     border: medium none;
     border-radius: 0;
     box-shadow: none;
-    color: #222;
+    color: #070122;
     float: left;
     height: 40px;
     padding: 0 20px;
