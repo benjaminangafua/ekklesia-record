@@ -177,7 +177,7 @@ def createMember():
                 if churchName():
                     db.execute("INSERT INTO members(name, address, department_group, gender, contact, join_status, date_of_birth, mail, account_id, joined_date) VALUES(?, ?, ?, ?, ?,?,?,?, (SELECT account_id FROM account WHERE account_id=?), date('now'))",
                             name, address, department,  gender, contact,join_status, date_of_birth, mail, churchId())
-                    flash("Member created successfull!",category="success")
+                    flash("Member created successful!",category="success")
                     
                     return redirect("/dashboard")
                 else:
@@ -191,7 +191,7 @@ def createMember():
             if churchName():
                 db.execute("INSERT INTO members(name, address, department_group, gender, contact, join_status, date_of_birth, mail, account_id, joined_date) VALUES(?, ?, ?, ?, ?,?,?,?, (SELECT account_id FROM account WHERE account_id=?), date('now'))",
                             name, address, department,  gender, contact,join_status, date_of_birth, mail, churchId())
-                flash("Member created successfull!",category="success")
+                flash("Member created successful!",category="success")
                 return redirect("/dashboard")
             else:
                 return redirect('/login')

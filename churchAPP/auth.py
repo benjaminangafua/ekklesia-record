@@ -43,17 +43,17 @@ def registerAccount():
 
             elif data != register["fullname"]:  
                 db.execute("INSERT INTO account(name, mail, password, phone, admin_name, address) VALUES(?, ?, ?, ?, ?, ?)", register["fullname"], register["email"], register["password"], register["phone"], register["admin_name"], register["address"])
-                flash("Church system successfull created!", category="success")
+                flash("Church system successful created!", category="success")
                 return redirect("/login") 
             else:
                 flash("Church already exist!", category="danger")
-                return render_template("registerhtml")  
+                return render_template("register.html")  
         else:
             db.execute("INSERT INTO account(name, mail, password, phone, admin_name, address) VALUES(?, ?, ?, ?, ?, ?)", register["fullname"], register["email"], register["password"], register["phone"], register["admin_name"], register["address"])
-            flash("Church system successfull created!", category="success")
+            flash("Church system successful created!", category="success")
             return redirect("/login")
     
-    return render_template("registerhtml")     
+    return render_template("register.html")     
   
 # Sign in
 @auth.route("/login", methods=["GET", "POST"])
@@ -79,7 +79,7 @@ def loginAccount():
                 flash("User not provided", category="danger")
 
             elif  not check_password_hash(user["password"], log["password"]):
-                flash("Invalid Passoword!", category="danger")
+                flash("Invalid Password!", category="danger")
             else:
                 session["user_id"] = user["account_id"]
                 flash("Login was successful", category="success")
@@ -156,7 +156,7 @@ def msisdn_sanitizer(msisdn, phone_code, leading_zero=False, plus=True) :
 
 
 #     take care of leading zeros in from of numbers
-#     remove exccess leading zeros
+#     remove excess leading zeros
 #     remove invalid character
 #     remove white spaces
 #     remove repeating phone code
