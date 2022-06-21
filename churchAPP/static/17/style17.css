@@ -171,9 +171,10 @@ select {
     padding-left: 20px;
 }
 
-select option[value=""][disabled] {
+
+/* select option[value=""][disabled] {
     display: none;
-}
+} */
 
 button {
     border: none;

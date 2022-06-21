@@ -1461,7 +1461,6 @@ a[data-toggle="collapse"] {
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     background: #fff;
-    border: solid;
     min-height: 165px;
 }
 

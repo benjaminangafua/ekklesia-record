@@ -34,7 +34,8 @@
                 <div class="social_cont">
 
                     <div class="couter_icon">
-                        <i class="fa fa-object-group yellow_color"></i>
+                        <i class="fa fa-male yellow_color"></i>
+                        <!-- <i class="fa fa-object-group yellow_color"></i> -->
                     </div>
                     <h4>Total: {{men}}</h4>
                 </div>
@@ -47,7 +48,7 @@
                 </div>
                 <div class="social_cont">
                     <div class="couter_icon">
-                        <i class="fa fa-user-times yellow_color"></i>
+                        <i class="fa fa-female yellow_color"></i>
                     </div>
                     <div>
                         <h4>{{women}} </h4>
@@ -61,9 +62,12 @@
                     <h1>Total Children</h1>
                 </div>
                 <div class="social_cont">
-                    <img src="{{url_for('static', filename='images/layout_img/verified-user.png')}}" width="20%" alt="">
-
-                    <h4> {{memberSum}}</h4>
+                    <div class="couter_icon">
+                        <i class="fa fa-child yellow_color"></i>
+                    </div>
+                    <div>
+                        <h4>{{memberSum}} </h4>
+                    </div>
                 </div>
             </div>
         </div>
@@ -77,7 +81,7 @@
                 <div class="social_cont">
                     <div class="couter_icon">
 
-                        <i class="fa fa-user-plus yellow_color"></i>
+                        <i class="fa fa-child yellow_color"></i>
                     </div>
                 </div>
                 <div class="social_cont">
@@ -121,7 +125,9 @@
                 </div>
             </div>
         </div>
-        <div style="text-align: center; padding: 40px;"><h4>Church Growth since founded</h4></div>
+        <div style="text-align: center; padding: 40px;">
+            <h4>Church Growth since founded</h4>
+        </div>
         <canvas id="bar-chart" width="800" height="450"></canvas>
 
         <!-- Minor Addition -->
@@ -197,11 +203,19 @@
     new Chart(document.getElementById("bar-chart"), {
         type: 'bar',
         data: {
-            labels: {{ label | safe }},
+            labels: {
+                {
+                    label | safe
+                }
+            },
             datasets: [{
                 label: "Church Growth",
-                backgroundColor: ["#070122", "#F09608","#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608"],
-                data: {{ value | safe}},
+                backgroundColor: ["#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608"],
+                data: {
+                    {
+                        value | safe
+                    }
+                },
                 borderRadius: 5,
             }]
         },
