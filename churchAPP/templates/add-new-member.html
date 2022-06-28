@@ -1,7 +1,8 @@
 {% extends "layout.html" %} {% block innerContaint %}
 
+
 <form method="post">
-    <div class="lg-m-5 m-4">
+    <div class="lg-m-5 m-4 py-5 member-form">
 
         <!-- Name -->
         <div class="col-auto">
@@ -37,7 +38,7 @@
                 <div class="input-group-prepend">
                     <div class="input-group-text">E-mail</div>
                 </div>
-                <input type="text" class="form-control" id="mail" name="mail" placeholder="0881000999">
+                <input type="email" class="form-control" id="mail" name="mail">
             </div>
         </div>
         <!-- Contact -->
@@ -47,7 +48,7 @@
                 <div class="input-group-prepend">
                     <div class="input-group-text">Contact</div>
                 </div>
-                <input type="text" class="form-control" id="contact" name="contact" placeholder="0881000999">
+                <input type="text" class="form-control" id="contact" name="contact">
             </div>
         </div>
         <!-- Address -->
@@ -91,7 +92,12 @@
                 <div class="input-group-prepend">
                     <div class="input-group-text">Join Status</div>
                 </div>
-                <input type="text" class="form-control" title="If member, specified position. If not new convert, or just new member" id="role" name="join_status" placeholder="Position">
+                <select name="join_status" id="" onchange='this.form.submit()'>
+                    <option selected disabled>Select</option>
+                    <option value="New Convert">New Convert</option>
+                    <option value="New Member">New Member</option>
+                </select>
+                <!-- <input type="text" class="form-control" title="If member, specified position. If not new convert, or just new member" id="role" name="join_status" placeholder="Position"> -->
             </div>
         </div>
 

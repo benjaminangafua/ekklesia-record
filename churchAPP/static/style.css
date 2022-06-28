@@ -358,7 +358,7 @@ h4 {
     font-size: 18px;
     color: #000;
     line-height: 21px;
-    font-weight: 600;
+    /* font-weight: 600; */
     text-transform: none;
     margin-bottom: 15px;
 }
@@ -931,7 +931,7 @@ a[data-toggle="collapse"] {
     transition: ease all 0.3s;
     position: relative;
     padding: 60px 25px 25px 305px;
-    background: #f8f8f8;
+    background: #e6e6f4;
 }
 
 .page_title {
@@ -1143,20 +1143,11 @@ a[data-toggle="collapse"] {
 
 .couter_icon i {
     color: #fff;
-    font-size: 30px;
+    font-size: 20px;
     line-height: normal;
     width: 100%;
     float: left;
     text-align: center;
-}
-
-.couter_icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    float: left;
-    margin: 4px 0 8px;
 }
 
 .couter_icon>div {
@@ -1183,6 +1174,14 @@ a[data-toggle="collapse"] {
     text-align: right;
     font-size: 24px;
     font-weight: 400;
+}
+
+.couter_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    float: left;
 }
 
 .counter_no .head_couter {
@@ -1474,10 +1473,12 @@ a[data-toggle="collapse"] {
 }
 
 .socile_icons .social_cont {
-    float: left;
     text-align: center;
     width: 100%;
-    padding: 15px 0 15px;
+    padding: 35px 0 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
 }
 
 .socile_icons .social_cont ul {
@@ -3407,4 +3408,10 @@ table.projects tr td:first-child {
 #focus {
     color: navy !important;
     font-style: oblique;
+}
+
+.member-form {
+    width: 50% !important;
+    background-color: #009da7;
+    padding: 10px auto;
 }

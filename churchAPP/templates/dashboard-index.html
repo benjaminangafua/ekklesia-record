@@ -37,7 +37,7 @@
                         <i class="fa fa-male yellow_color"></i>
                         <!-- <i class="fa fa-object-group yellow_color"></i> -->
                     </div>
-                    <h4>Total: {{men}}</h4>
+                    <h4>{{men}}</h4>
                 </div>
             </div>
         </div>
@@ -80,22 +80,12 @@
                 </div>
                 <div class="social_cont">
                     <div class="couter_icon">
-
                         <i class="fa fa-child yellow_color"></i>
                     </div>
-                </div>
-                <div class="social_cont">
-                    <ul>
-                        <li>
-                            <h3> {{convertMonth}}</h3>
-                            <h4> This Month</h4>
-                        </li>
-                        <li id="focus">
-                            <span><strong>{{convertYear}}</strong></span>
-                            <strong>This year</strong>
-                        </li>
-                    </ul>
-
+                    <div>
+                        <h4> This Month: {{convertMonth}}</h4>
+                        <h4>This year: {{convertYear}}</h4>
+                    </div>
                 </div>
             </div>
         </div>
@@ -108,18 +98,9 @@
                     <div class="couter_icon">
                         <i class="fa fa-birthday-cake yellow_color"></i>
                     </div>
-                    <div class="social_cont">
-                        <ul>
-                            <li>
-                                <h3>{{birth_sum_today}}</h3>
-                                <h4>Today</h4>
-                            </li>
-                            <li id="focus">
-                                <span><strong>{{birth_sum_this_month}}</strong></span>
-                                <strong>This month</strong>
-                            </li>
-
-                        </ul>
+                    <div>
+                        <h4>Today: {{birth_sum_today}}</h4>
+                        <h4>This month: {{birth_sum_this_month}}</h4>
                     </div>
 
                 </div>

@@ -25,25 +25,32 @@
 
 
     <div class="wrapper form-bg-img">
-        <div class="inner">
-            <h3>Login Form</h3>
+        <div class="align-img">
+            <div class="login-img">
+                <img src="../static/17/log.jpeg" alt="">
+            </div>
+            <div class="inner">
+                <h3>Admin Login</h3>
 
-            <form method="post">
-                <div class="form-wrapper">
-                    <input type="text" name="username" placeholder="username" class="form-control" required>
-                    <i class="zmdi zmdi-pin-account"></i>
-                </div>
-                <div class="form-wrapper">
-                    <input type="password" id="password" name="password" placeholder="Password" class="form-control" required>
-                    <i class="zmdi zmdi-eye" id="show-password"></i>
-                </div>
+                <form method="post">
+                    <div class="form-wrapper long">
+                        <input type="text" name="username" placeholder="Username" class="form-control" required>
+                        <i class="zmdi zmdi-pin-account"></i>
+                    </div>
+                    <div class="form-wrapper long">
+                        <input type="password" id="password" name="password" placeholder="Password" class="form-control" required>
+                        <i class="zmdi zmdi-eye" id="show-password"></i>
+                    </div>
 
-                <div class="log-child inner-child">Don't have an account? <a style="text-decoration: none;" href="/register"><em>Register</em></a></div>
+                    <div class="log-child inner-child long">Don't have an account? <a style="text-decoration: none;" href="/register"> Register </a></div>
 
-                <button style="background-color: rgb(3, 3, 68);" type="submit">Login
+                    <div class="long"><button style="background-color: rgb(3, 3, 68);" type="submit">Login
 						<i class="zmdi zmdi-arrow-right"></i>
 					</button>
-            </form>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
     <script>

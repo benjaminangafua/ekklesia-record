@@ -95,7 +95,6 @@
     }
     .couter_icon {
         display: block;
-        width: 100%;
     }
     .couter_icon>div {
         padding-right: 0;
@@ -115,7 +114,7 @@
     }
     .couter_icon {
         display: block;
-        width: 100%;
+        /* width: 100%; */
     }
     .couter_icon>div {
         padding-right: 0;

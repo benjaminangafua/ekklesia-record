@@ -4,7 +4,7 @@ from churchAPP import db
 
 views = Blueprint('views', __name__)
 
-# ------------------------------------------------------------------------------ Builder ---------------------------------------
+# --------------------------------------------------------------------------- Builder ---------------------------------------
 
 # landing page
 @views.route("/")
@@ -25,7 +25,7 @@ def churchName():
 def churchId():
     row = db.execute("SELECT account_id FROM account WHERE account_id =?", session["user_id"])[0]["account_id"]
     return row
-# ----------------------------------------------------------------------------Need Query --------------
+# ----------------------------------------------------------------------------Need Query ------------------------
 
 # dashboard
 @views.route("/dashboard")
@@ -57,13 +57,7 @@ def home():
 
     # New Member
     countConvert = db.execute("SELECT strftime('%Y',date_of_birth) as 'Year', strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE join_status LIKE 'new convert' AND account_id=?", churchId())[0]
-    male = db.execute("SELECT COUNT(*) FROM members WHERE gender LIKE 'male' AND join_status LIKE 'new convert' AND account_id=?", churchId())[0]['COUNT(*)']
-    female = db.execute("SELECT COUNT(*) FROM members  WHERE gender LIKE 'female' AND join_status LIKE 'new convert' AND account_id=?", churchId())[0]['COUNT(*)']
-   
     
-    # Member's Section
-    menSum+=male
-    womenSum+=female
     birth_sum_today=getADay(today, birth, memberSum)
     
     data = [
@@ -148,7 +142,7 @@ def createMember():
         department = request.form.get("department")
         mail = request.form.get("mail")
         join_status = request.form.get("join_status")
-        
+        print(join_status)
         # Check for existing church and members
         if len(db.execute("SELECT * FROM account")) > 0 and len(db.execute("SELECT * FROM members  WHERE account_id=?", churchId())) > 0: 
 
