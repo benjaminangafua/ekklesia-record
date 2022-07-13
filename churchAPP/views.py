@@ -32,56 +32,61 @@ def churchId():
 @login_required
 def home(): 
     # Query church
-    #Total member
-    memberSum = len(db.execute('SELECT name FROM members WHERE account_id=?', churchId()))
-    
-    #Total men
-    menSum = len(db.execute('SELECT * FROM members WHERE gender LIKE "male" AND account_id=?', churchId()))
+    church = db.execute("SELECT * FROM members WHERE account_id=?", churchId())
 
-    #Total women
-    womenSum = len(db.execute('SELECT name FROM members WHERE gender LIKE "female" AND account_id=?', churchId()))
+    if len(church) > 0:
+        #Total member
+        memberSum = len(db.execute('SELECT name FROM members WHERE account_id=?', churchId()))
+        
+        #Total men
+        menSum = len(db.execute('SELECT * FROM members WHERE gender LIKE "male" AND account_id=?', churchId()))
 
-    #Total Children
-    children = db.execute(f"SELECT strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE account_id=?", churchId())
-    
-    # Department's Section
-    departmentSum = db.execute('SELECT COUNT(DISTINCT(department_group)) FROM members WHERE account_id=?', churchId())[0]['COUNT(DISTINCT(department_group))']
-    
-    # Birthday entry
-    currentDate =  db.execute("SELECT  strftime('%Y','now') as 'ThisYear', strftime('%m','now') as 'Month', strftime('%d','now') as 'Day'")[0]
-    this_year = currentDate["ThisYear"]
-    this_month = currentDate["Month"]
-    today = currentDate["Day"]
-    birth = db.execute(f"SELECT strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE account_id=?", churchId())
-                    
+        #Total women
+        womenSum = len(db.execute('SELECT name FROM members WHERE gender LIKE "female" AND account_id=?', churchId()))
 
-    # New Member
-    countConvert = db.execute("SELECT strftime('%Y',date_of_birth) as 'Year', strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE join_status LIKE 'new convert' AND account_id=?", churchId())[0]
-    
-    birth_sum_today=getADay(today, birth, memberSum)
-    
-    data = [
-            ('Jan',  898),
-            ('Feb', 732),
-            ('Mar', 653),
-            ('Apr', 212),
-            ('May', 334),
-            ('Jun', 993),
-            ('Jul', 234),
-            ('Aug', 887),
-            ('Sept', 653),
-            ('Oct', 567),
-            ('Nov', 498),
-            ('Dec', 1993),
-        ]
+        #Total Children
+        children = db.execute(f"SELECT strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE account_id=?", churchId())
+        
+        # Department's Section
+        departmentSum = db.execute('SELECT COUNT(DISTINCT(department_group)) FROM members WHERE account_id=?', churchId())[0]['COUNT(DISTINCT(department_group))']
+        
+        # Birthday entry
+        currentDate =  db.execute("SELECT  strftime('%Y','now') as 'ThisYear', strftime('%m','now') as 'Month', strftime('%d','now') as 'Day'")[0]
+        this_year = currentDate["ThisYear"]
+        this_month = currentDate["Month"]
+        today = currentDate["Day"]
+        birth = db.execute(f"SELECT strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE account_id=?", churchId())
+                        
 
-    labels = [row[0] for row in data]
-    values = [row[1] for row in data]
+        # New Member
 
-    return render_template("dashboard-index.html", 
-    birth_sum_today=getADay(today, birth, memberSum), birth_sum_this_month=0, label=labels, value=values, convertYear=getYear(this_year, countConvert["Year"], memberSum), convertMonth=getMonth(this_month, countConvert["Month"], memberSum),
-    departmentSum=departmentSum, men=menSum, women=womenSum, memberSum=memberSum,church=churchName())
+        # countConvert = db.execute("SELECT strftime('%Y',date_of_birth) as 'Year', strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE join_status = 'New Convert' AND account_id=?", churchId())[0]
+        # convertYear=getYear(this_year, countConvert["Year"], memberSum), convertMonth=getMonth(this_month, countConvert["Month"], memberSum),
+        birth_sum_today=getADay(today, birth, memberSum)
+        
+        data = [
+                ('Jan',  898),
+                ('Feb', 732),
+                ('Mar', 653),
+                ('Apr', 212),
+                ('May', 334),
+                ('Jun', 993),
+                ('Jul', 234),
+                ('Aug', 887),
+                ('Sept', 653),
+                ('Oct', 567),
+                ('Nov', 498),
+                ('Dec', 1993),
+            ]
 
+        labels = [row[0] for row in data]
+        values = [row[1] for row in data]
+
+        return render_template("dashboard-index.html", 
+        birth_sum_today=getADay(today, birth, memberSum), birth_sum_this_month=0, label=labels, value=values,
+        departmentSum=departmentSum, men=menSum, women=womenSum, memberSum=memberSum,church=churchName())
+    else:
+        return redirect("/add-new-member")
 def getYear(This_year, Db_Year,total_member ):
     year = 0    
     if int(Db_Year) == This_year:
@@ -191,3 +196,4 @@ def createMember():
                 return redirect('/login')
 
     return render_template('add-new-member.html')
+    

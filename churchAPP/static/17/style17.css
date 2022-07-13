@@ -12,11 +12,8 @@ img {
     max-width: 100%;
 }
 
-.login-img img {
-    padding-top: 30px;
-    border-radius: 50%;
-    width: 60%;
-    margin-left: 15%;
+.logo {
+    text-align: center;
 }
 
 .align-img {
@@ -85,22 +82,26 @@ a:hover {
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    display: flex;
     align-items: center;
 }
 
 .inner {
-    padding: 20px;
     border-radius: 5px;
-    max-width: 850px;
+    padding-top: 40px;
+    width: 25%;
     margin: auto;
+    background-color: rgb(236, 235, 235);
 }
 
 .inner h3 {
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
+    text-align: center;
     font-size: 18px;
     font-family: "Poppins-SemiBold";
-    margin-bottom: 18px;
+}
+
+#user-title {
+    padding-bottom: 5px;
 }
 
 .form-group {
@@ -122,8 +123,11 @@ a:hover {
 
 .form-wrapper i {
     position: absolute;
-    right: 0;
+    left: 0;
     padding: 10px;
+    border-right: 1px solid rgb(211, 210, 210);
+    margin-top: 2%;
+    line-height: 4px;
 }
 
 .form-control {
@@ -131,7 +135,8 @@ a:hover {
     border: none;
     width: 100%;
     height: 30px;
-    padding: 10px;
+    padding: 18px;
+    padding-left: 40px;
     margin-bottom: 25px;
 }
 
@@ -166,6 +171,21 @@ select {
     background: rgb(196, 193, 193);
 }
 
+.inner form {
+    width: 100%;
+    padding: 40px;
+}
+
+.reg-link {
+    background-color: gainsboro;
+    width: 100%;
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid rgb(171, 177, 185);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
 
 /* select option[value=""][disabled] {
     display: none;
@@ -173,10 +193,9 @@ select {
 
 button {
     border: none;
-    width: 100px;
+    width: 100%;
     height: 40px;
     border-radius: 3px;
-    margin-top: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -273,22 +292,17 @@ button:active i {
     .wrapper {
         background-position: right center;
     }
-    .login-img img {
-        margin-left: 0;
-    }
 }
 
 @media (max-width: 991px) {
     .inner form {
-        padding: 20px;
-    }
-    .login-img img {
-        margin-left: 0;
+        padding: 30px;
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 810px) {
     .inner {
+        width: 50%;
         display: block;
     }
     .inner .image-holder {
@@ -296,13 +310,25 @@ button:active i {
     }
     .inner form {
         width: 100%;
-        padding: 40px 0 30px;
     }
     button {
         margin-top: 60px;
     }
-    .login-img img {
-        margin-left: 0;
+}
+
+@media (max-width: 767px) {
+    .inner {
+        width: 90%;
+        display: block;
+    }
+    .inner .image-holder {
+        width: 100%;
+    }
+    .inner form {
+        width: 100%;
+    }
+    button {
+        margin-top: 60px;
     }
 }
 
@@ -320,8 +346,5 @@ button:active i {
     }
     button {
         margin-top: 0px;
-    }
-    .login-img img {
-        margin-left: 0;
     }
 }

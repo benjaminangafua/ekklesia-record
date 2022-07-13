@@ -66,20 +66,15 @@ def loginAccount():
         )
     
         if len(db.execute("SELECT * FROM account")) > 0:
-            
+
             user = db.execute("SELECT * FROM account WHERE name like ?", log["username"])[0]
-            
-            if len(log["username"]) < 10 and len(log["username"]) > 13:
-                flash("Invalid log.username!", category="danger")
-
-            elif not log["password"]:
-                flash("Invalid password!", category="danger")
-
-            elif user is None:
+            if  log["username"] != user["name"]:
                 flash("User not provided", category="danger")
-
-            elif  not check_password_hash(user["password"], log["password"]):
+                return redirect("/login")
+            if  not check_password_hash(user["password"], log["password"]):
+                 
                 flash("Invalid Password!", category="danger")
+                return redirect("/login")
             else:
                 session["user_id"] = user["account_id"]
                 flash("Login was successful", category="success")

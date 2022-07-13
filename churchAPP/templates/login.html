@@ -25,33 +25,36 @@
 
 
     <div class="wrapper form-bg-img">
-        <div class="align-img">
-            <div class="login-img">
-                <img src="../static/17/log.jpeg" alt="">
-            </div>
-            <div class="inner">
-                <h3>Login in to your account</h3>
+        <div class="logo"><img src="../static/images/logo/logo.png" alt=""></div>
+        <div class="inner">
+            <h3>Login in to your account</h3>
 
-                <form method="post">
-                    <div class="form-wrapper long">
-                        <input type="text" name="username" placeholder="Username" class="form-control" required>
-                        <i class="zmdi zmdi-pin-account"></i>
-                    </div>
-                    <div class="form-wrapper long">
-                        <input type="password" id="password" name="password" placeholder="Password" class="form-control" required>
-                        <i class="zmdi zmdi-eye" id="show-password"></i>
-                    </div>
+            <form method="post">
+                <div id="user-title">Username</div>
 
-                    <div class="log-child inner-child long">Don't have an account? <a style="text-decoration: none;" href="/register"> Register </a></div>
+                <div class="form-wrapper long">
 
-                    <div class="long"><button style="background-color: rgb(3, 3, 68);" type="submit">Login
+                    <input type="text" name="username" class="form-control" required>
+                    <i class="zmdi zmdi-pin-account"></i>
+                </div>
+
+                <div id="user-title">Password</div>
+                <div class="form-wrapper long">
+                    <input type="password" id="password" name="password" class="form-control" required>
+                    <i class="zmdi zmdi-eye" id="show-password"></i>
+                </div>
+
+
+                <div class="long"><button style="background-color: rgb(3, 3, 68);" type="submit">Log In
 						<i class="zmdi zmdi-arrow-right"></i>
 					</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
+            <div class="reg-link">New to Ekklesia? <a href="/register"> Sign Up </a></div>
 
         </div>
+
+    </div>
     </div>
     <script>
         const password = document.getElementById("password")
