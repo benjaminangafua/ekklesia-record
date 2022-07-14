@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site meta -->
+    <title>{{church}}</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!-- site icon -->
+    <link rel="icon" href="{{url_for('static', filename='images/logo/logo.png')}}" type="image/png" />
+    <!-- bootstrap 4 css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="{{url_for('static', filename='17/css/styles.css')}}">
+    <!-- responsive css -->
+    <!-- color css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/color_2.css')}}" />
+    <!-- select bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" />
+    <!-- scrollbar css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/perfect-scrollbar.css')}}" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/custom.css')}}" />
+
+    <!-- calendar file css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css" />
+    <!-- fancy box js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <!-- calendar file css -->
+    <!-- site css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.1/flexslider.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
+    <style>
+        #bbg {
+            background-color: rgb(241, 227, 18) !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/responsive.css')}}" />
+</head>
+
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar" id="bbg">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="/dashboard">
+                                <img class="logo_icon img-responsive" src="{{url_for('static', filename='images/logo/logo.png')}}" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img">
+                                <img class="img-responsive" src="{{url_for('static', filename='images/layout_img/user_img.jpg')}}" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>{{church}}</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <ul class="list-unstyled components">
+                        <li class="active"><a href="/dashboard"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+                        <li><a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-users orange_color"> </i> <span>People</span></a>
+                            <ul class="collapse list-unstyled" id="element">
+                                <li>
+                                    <a href="/member"> <span>Members</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="/add-new-member"> <span>Add New Member</span></a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#"><i class="fa fa-money yellow_color"></i> <span>Giving</span></a>
+                        </li>
+                        <li>
+                            <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-calendar yellow_color"></i><span>Communication</span></a>
+                            <ul class="collapse list-unstyled" id="apps">
+                                <li>
+                                    <a href="#"> <span>Email</span></a>
+                                </li>
+                                <li>
+                                    <a href="#"> <span>SMS</span></a>
+                                </li>
+                                <li>
+                                    <a href="#"> <span>Alert</span></a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#report" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-briefcase  yellow_color"></i> <span>Report</span></a>
+                            <ul class="collapse list-unstyled" id="report">
+                                <li><a href="#"><span> Membership</span></a></li>
+                                <li>
+                                    <a href="#"> <span>Financial</span></a>
+                                </li>
+                                <li>
+                                    <a href="#"> <span>Celebration</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-paper-plane yellow_color"></i> <span>Contact</span></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- top bar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="/dashboard"><img class="img-responsive rounded" src="{{url_for('static', filename='images/logo/logo.png')}}" alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li title="notifications"><a href="#"><i class="fa fa-bell-o"></i><span class="badge"  onclick="javascript:this.innerHTML = 0">{{notify}}</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{{url_for('static', filename='images/layout_img/user_img.jpg')}}" alt="#" /><span class="name_user">{{church}}</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">My Profile</a>
+                                                <a class="dropdown-item" href="#">Settings</a>
+                                                <a class="dropdown-item" href="#">Help</a>
+                                                <a class="dropdown-item" href="/logout"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end top bar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+                    {% if messages %} {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <!-- <strong>Title</strong> -->{{ message }}
+                    </div>
+                    {% endfor %} {% endif %} {% endwith %} {% block innerContaint %} {% endblock %}
+
+                    <!-- footer -->
+                    <div class="container-fluid text-warning">
+                        <div class="footer">
+                            <p>Copyright © 2021 Designed by Benjamin A. Ngafua. All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end dashboard inner -->
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <!-- bootstrap -->
+    <!-- <script src="{{url_for('static', filename='17/js/scripts.js')}}"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- wow animation -->
+    <script src="{{url_for('static', filename='js/animate.js')}}"></script>
+    <!-- select country -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    <!-- owl carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+    <!-- chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script src="{{url_for('static', filename='js/utils.js')}}"></script>
+    <script src="{{url_for('static', filename='js/analyser.js')}}"></script>
+
+    <!-- nice scrollbar -->
+    <script src="{{url_for('static', filename='js/perfect-scrollbar.min.js')}}"></script>
+    <!-- <script>
+        var ps = new PerfectScrollbar('#sidebar');
+    </script> -->
+    <!-- fancy box js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+    <!-- calendar file css -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
+    <!-- custom js -->
+    <script src="{{url_for('static', filename='js/custom.js')}}"></script>
+    <script src="{{url_for('static', filename='js/chart_custom_style1.js')}}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+
+
+
+</body>
+
+</html>

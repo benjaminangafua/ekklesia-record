@@ -1,0 +1,350 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.parent {
+    height: 70vh;
+}
+
+img {
+    max-width: 100%;
+}
+
+.logo {
+    text-align: center;
+}
+
+.align-img {
+    display: flex;
+    margin: auto 30% auto auto;
+    background-color: rgb(207, 208, 209);
+    padding: 5px;
+}
+
+.form-bg-img {
+    background-image: linear-gradient(rgba(236, 213, 11, 0.205), rgba(19, 10, 51, 0.959)), url('../17/reading.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.inner-child {
+    width: 100%;
+    margin-top: auto;
+    vertical-align: bottom;
+}
+
+.child {
+    height: 40px;
+}
+
+body {
+    font-family: "Poppins-Regular";
+    color: #333;
+    margin: 0;
+}
+
+input,
+textarea,
+select,
+button {
+    font-family: "Poppins-Regular";
+    color: #333;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+    margin: 0;
+}
+
+ul {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+:focus {
+    outline: none;
+}
+
+.wrapper {
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+}
+
+.inner {
+    border-radius: 5px;
+    padding-top: 40px;
+    width: 25%;
+    margin: auto;
+    background-color: rgb(236, 235, 235);
+}
+
+.inner h3 {
+    /* text-transform: uppercase; */
+    text-align: center;
+    font-size: 18px;
+    font-family: "Poppins-SemiBold";
+}
+
+#user-title {
+    padding-bottom: 5px;
+}
+
+.form-group {
+    display: flex;
+}
+
+.form-group input {
+    width: 60%;
+    padding: 20px;
+}
+
+.form-group input:first-child {
+    margin-right: 25px;
+}
+
+.form-wrapper {
+    position: relative;
+}
+
+.form-wrapper i {
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    border-right: 1px solid rgb(211, 210, 210);
+    margin-top: 2%;
+    line-height: 4px;
+}
+
+.form-control {
+    border: 1px solid #333;
+    border: none;
+    width: 100%;
+    height: 30px;
+    padding: 18px;
+    padding-left: 40px;
+    margin-bottom: 25px;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #333;
+    font-family: "Poppins-Regular";
+}
+
+.form-control::-moz-placeholder {
+    color: #333;
+    font-family: "Poppins-Regular";
+}
+
+.form-control:-ms-input-placeholder {
+    color: #333;
+    font-family: "Poppins-Regular";
+}
+
+.form-control:-moz-placeholder {
+    color: #333;
+    font-family: "Poppins-Regular";
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-left: 20px;
+}
+
+.reg-inner {
+    background: rgb(196, 193, 193);
+}
+
+.inner form {
+    width: 100%;
+    padding: 40px;
+}
+
+.reg-link {
+    background-color: gainsboro;
+    width: 100%;
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid rgb(171, 177, 185);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+/* select option[value=""][disabled] {
+    display: none;
+} */
+
+button {
+    border: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: #333;
+    font-size: 15px;
+    color: #fff;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+button i {
+    margin-left: 10px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.reg-bg-color {
+    background-color: darkgray;
+}
+
+button:hover i,
+button:focus i,
+button:active i {
+    -webkit-animation-name: hvr-icon-wobble-horizontal;
+    animation-name: hvr-icon-wobble-horizontal;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+@-webkit-keyframes hvr-icon-wobble-horizontal {
+    16.65% {
+        -webkit-transform: translateX(6px);
+        transform: translateX(6px);
+    }
+    33.3% {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    49.95% {
+        -webkit-transform: translateX(4px);
+        transform: translateX(4px);
+    }
+    66.6% {
+        -webkit-transform: translateX(-2px);
+        transform: translateX(-2px);
+    }
+    83.25% {
+        -webkit-transform: translateX(1px);
+        transform: translateX(1px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes hvr-icon-wobble-horizontal {
+    16.65% {
+        -webkit-transform: translateX(6px);
+        transform: translateX(6px);
+    }
+    33.3% {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    49.95% {
+        -webkit-transform: translateX(4px);
+        transform: translateX(4px);
+    }
+    66.6% {
+        -webkit-transform: translateX(-2px);
+        transform: translateX(-2px);
+    }
+    83.25% {
+        -webkit-transform: translateX(1px);
+        transform: translateX(1px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 1199px) {
+    .wrapper {
+        background-position: right center;
+    }
+}
+
+@media (max-width: 991px) {
+    .inner form {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 810px) {
+    .inner {
+        width: 50%;
+        display: block;
+    }
+    .inner .image-holder {
+        width: 100%;
+    }
+    .inner form {
+        width: 100%;
+    }
+    button {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    .inner {
+        width: 90%;
+        display: block;
+    }
+    .inner .image-holder {
+        width: 100%;
+    }
+    .inner form {
+        width: 100%;
+    }
+    button {
+        margin-top: 60px;
+    }
+}
+
+@media(max-width:480px) {
+    .align-img {
+        display: block;
+        margin: 5% auto;
+        text-align: center;
+    }
+    .wrapper {
+        min-height: 0;
+    }
+    .reg-inner {
+        margin: 5% auto;
+    }
+    button {
+        margin-top: 0px;
+    }
+}
