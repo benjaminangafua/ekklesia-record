@@ -71,5 +71,3 @@ The church being an organization of ministry leaders, administrators, staff, mem
 
 - Images use
 - ## The images are from: [PEXELS](https://www.pexels.com/)
-
-0776931461
