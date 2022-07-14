@@ -62,7 +62,7 @@ The church being an organization of ministry leaders, administrators, staff, mem
     
 - **Templates :**
     - Jinja2
-    - >Frontend : [TEMPLATEMO](https://themewagon.com/)
+- **Frontend :** [TEMPLATEMO](https://themewagon.com/)
 
 - **Backend Language:** 
     - Python
