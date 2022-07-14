@@ -37,26 +37,26 @@ A Church Management System (Ekklesia) for connecting administrators and members 
 
 # What Ekklesia does?
 
-## It covers daily church administrator operations 
+- It covers daily church administrator operations 
 - It help as service support, reporting, work coordination, emails and information dissemination
 - Stores attendance, and contribution details
 - It helps define approaches to ministry
 - It ensures the smooth running of the church on a day-to-day basis by automating recurring tasks and reducing the cost of operations.
     
-## It tracks and manages resources
+* It tracks and manages resources
 - Accounting functionality and report to improve financial management
 - Accurately keeps tab of contributions and donations
 
-## It enhances communication 
+* It enhances communication 
 The church being an organization of ministry leaders, administrators, staff, members and visitors, Ekklesia provides technology tools for better communication as well as sending alert on church news, updates and developments. It also makes for efficient and effective spreading of the Gospel.
 
-## Monitor growth of the congregation
+* Monitor growth of the congregation
 - This includes tracking service attendance
 - Manages contacts and membership and prospecting for new members 
 - It maintains a database of each member with details and information that can automatically be updated.
 
 # Who to use it?
- - Currently it's used for church administrator for church growth and provide need for members outreach.
+ - Currently it's used for church administrator.
 
 # Technology used
 - Framework: 
@@ -64,10 +64,10 @@ The church being an organization of ministry leaders, administrators, staff, mem
     
 - Templates :
     - Jinja2
-    - ## Frontend : [TEMPLATEMO](https://themewagon.com/)
+    - >Frontend : [TEMPLATEMO](https://themewagon.com/)
 
 - Backend Language: 
     - Python
 
 - Images use
-- ## The images are from: [PEXELS](https://www.pexels.com/)
+- > The images are from: [PEXELS](https://www.pexels.com/)
