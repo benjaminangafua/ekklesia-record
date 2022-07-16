@@ -249,7 +249,8 @@ sup {
 
 a {
     color: #f09608;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    font-size: 18px;
 }
 
 a:hover {
