@@ -1,7 +1,11 @@
-from flask import render_template, g, request, redirect, flash, session
+from flask import render_template, g, request, redirect, flash, session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 import functools  
 import re
+
+# string = dict(newTxt = "PYTHON new STUff")
+# print(string["newTxt"].lower())
+
 from . import db
 
 from flask import Blueprint
@@ -10,7 +14,6 @@ auth = Blueprint("auth", __name__)
 
 # auth.secret_key = "hello"
 # auth.permanent_session_lifetime = timedelta(minutes=5)
-
 # sign-up
 @auth.route('/register', methods=["GET", "POST"])
 def registerAccount():
@@ -24,7 +27,7 @@ def registerAccount():
         phone = msisdn_sanitizer(request.form.get("phone"), "+231"),
         confirm_password = request.form.get("confirm_password"),
         address = request.form.get("address"),
-        admin_name = request.form.get("admin_name")
+        admin_name = (request.form.get("admin_name")).lower()
         )
         
         if len(db.execute("SELECT * FROM account")) > 0:
@@ -42,14 +45,14 @@ def registerAccount():
             # Add account if not exist
 
             elif data != register["fullname"]:  
-                db.execute("INSERT INTO account(name, mail, password, phone, admin_name, address) VALUES(?, ?, ?, ?, ?, ?)", register["fullname"], register["email"], register["password"], register["phone"], register["admin_name"], register["address"])
+                db.execute("INSERT INTO account(name, mail, password, phone, admin_name, address, joined_date) VALUES(?, ?, ?, ?, ?, ?, date('now'))", register["fullname"], register["email"], register["password"], register["phone"], register["admin_name"], register["address"])
                 flash("Church system successful created!", category="success")
                 return redirect("/login") 
             else:
                 flash("Church already exist!", category="danger")
                 return render_template("register.html")  
         else:
-            db.execute("INSERT INTO account(name, mail, password, phone, admin_name, address) VALUES(?, ?, ?, ?, ?, ?)", register["fullname"], register["email"], register["password"], register["phone"], register["admin_name"], register["address"])
+            db.execute("INSERT INTO account(name, mail, password, phone, admin_name, address, joined_date) VALUES(?, ?, ?, ?, ?, ?, date('now'))", register["fullname"], register["email"], register["password"], register["phone"], register["admin_name"], register["address"])
             flash("Church system successful created!", category="success")
             return redirect("/login")
     
@@ -61,14 +64,18 @@ def loginAccount():
     if request.method == "POST":
         session.permanent=True
         log = dict(
-        username = request.form.get("username"),
+        admin_name = (request.form.get("admin_name")).lower(),
         password =request.form.get("password")
         )
-    
+        debug = db.execute("SELECT * FROM account WHERE account_id > 3")
+
+        print(debug)
+
+
         if len(db.execute("SELECT * FROM account")) > 0:
 
-            user = db.execute("SELECT * FROM account WHERE name like ?", log["username"])[0]
-            if  log["username"] != user["name"]:
+            user = db.execute("SELECT * FROM account WHERE admin_name like ?", log["admin_name"])[0]
+            if  log["admin_name"] != user["admin_name"]:
                 flash("User not provided", category="danger")
                 return redirect("/login")
             if  not check_password_hash(user["password"], log["password"]):
