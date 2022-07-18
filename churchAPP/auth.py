@@ -47,14 +47,14 @@ def registerAccount():
             elif data != register["fullname"]:  
                 db.execute("INSERT INTO account(name, mail, password, phone, admin_name, address, joined_date) VALUES(?, ?, ?, ?, ?, ?, date('now'))", register["fullname"], register["email"], register["password"], register["phone"], register["admin_name"], register["address"])
                 flash("Church system successful created!", category="success")
-                return redirect("/login") 
+                return redirect("/") 
             else:
                 flash("Church already exist!", category="danger")
                 return render_template("register.html")  
         else:
             db.execute("INSERT INTO account(name, mail, password, phone, admin_name, address, joined_date) VALUES(?, ?, ?, ?, ?, ?, date('now'))", register["fullname"], register["email"], register["password"], register["phone"], register["admin_name"], register["address"])
             flash("Church system successful created!", category="success")
-            return redirect("/login")
+            return redirect("/")
     
     return render_template("register.html")     
   
