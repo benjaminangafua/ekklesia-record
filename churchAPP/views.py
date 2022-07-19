@@ -1,3 +1,4 @@
+from email import message
 from flask import Blueprint, render_template, request, redirect, flash, session
 from .auth import login_required
 from churchAPP import db
@@ -7,8 +8,17 @@ views = Blueprint('views', __name__)
 # --------------------------------------------------------------------------- Builder ---------------------------------------
 
 # landing page
-@views.route("/")
+@views.route("/", methods=["GET", "POST"])
 def landingPage():
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        tel = request.form.get("tel")
+        message = request.form.get("message")
+        # DELETE FROM table WHERE search_condition ORDER BY criteria LIMIT row_count OFFSET offset;
+        db.execute("INSERT INTO visitorRemark(name, tel, email, message, date) VALUES(?, ?, ?, ?, date('now'))", name, tel, email, message)
+        print(db.execute("select * from visitorRemark"))
+        return redirect("/")
     return render_template("index.html")
 
 # Contact form
@@ -147,7 +157,7 @@ def createMember():
         department = request.form.get("department")
         mail = request.form.get("mail")
         join_status = request.form.get("join_status")
-        print(join_status)
+        
         # Check for existing church and members
         if len(db.execute("SELECT * FROM account")) > 0 and len(db.execute("SELECT * FROM members  WHERE account_id=?", churchId())) > 0: 
 
