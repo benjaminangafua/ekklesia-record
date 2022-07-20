@@ -7,7 +7,7 @@ db = SQL('sqlite:///church.db')
 
 def create_app():
     app = Flask(__name__)
-    app.secret_key = 'Somekinda secret key'
+    app.secret_key = 'SomeKinda secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
     app.config["SESSION_FILE_DIR"] = mkdtemp()
     app.config["SESSION_PERMANENT"] = True

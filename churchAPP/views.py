@@ -1,7 +1,14 @@
-from email import message
 from flask import Blueprint, render_template, request, redirect, flash, session
+from sqlalchemy import null
 from .auth import login_required
 from churchAPP import db
+
+
+
+
+
+
+
 
 views = Blueprint('views', __name__)
 
@@ -12,12 +19,14 @@ views = Blueprint('views', __name__)
 def landingPage():
     if request.method == "POST":
         name = request.form.get("name")
-        email = request.form.get("email")
         tel = request.form.get("tel")
-        message = request.form.get("message")
+
+        sender = request.form.get("email")
+        inputMessage = request.form.get("message")
+
         # DELETE FROM table WHERE search_condition ORDER BY criteria LIMIT row_count OFFSET offset;
-        db.execute("INSERT INTO visitorRemark(name, tel, email, message, date) VALUES(?, ?, ?, ?, date('now'))", name, tel, email, message)
-        print(db.execute("select * from visitorRemark"))
+        # db.execute("INSERT INTO visitorRemark(name, tel, email, message, date) VALUES(?, ?, ?, ?, date('now'))", name, tel, email, message)
+        # print(db.execute("select * from visitorRemark"))
         return redirect("/")
     return render_template("index.html")
 

@@ -168,6 +168,6 @@ def msisdn_sanitizer(msisdn, phone_code, leading_zero=False, plus=True) :
 # print(msisdn_sanitizer("08030000000", "+234")) # +2348030000000
 # print(msisdn_sanitizer("8030000000", "+234")) # +2348030000000
 # print(msisdn_sanitizer("+234803000#!*()%,^&0000", "+234")) # +2348030000000
-# print(msisdn_sanitizer("+234803000kddskdskf0000", "+234")) # +2348030000000
+# print(msisdn_sanitizer("+234803000ben0000", "+234")) # +2348030000000
 # print(msisdn_sanitizer("+234000000080 3000 00 00","+234")) # +2348030000000
 # print(msisdn_sanitizer("+234234234234 80 3000 00 00","+234")) # +2348030000000
