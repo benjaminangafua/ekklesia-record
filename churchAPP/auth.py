@@ -2,19 +2,18 @@ from flask import render_template, g, request, redirect, flash, session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 import functools  
 import re
+from . import db
+
+from flask import Blueprint
 
 # string = dict(newTxt = "PYTHON new STUff")
 # print(string["newTxt"].lower())
 
-from . import db
-
-from flask import Blueprint
 
 auth = Blueprint("auth", __name__)
 
 # auth.secret_key = "hello"
 # auth.permanent_session_lifetime = timedelta(minutes=5)
-# sign-up
 @auth.route('/register', methods=["GET", "POST"])
 def registerAccount():
     # Create church account
@@ -109,7 +108,6 @@ def login_required(view):
         if g.user is None:
             return redirect("/login")
         return view(**kwargs)
-
     return wrapped_view
 
 # Log out
@@ -155,7 +153,6 @@ def msisdn_sanitizer(msisdn, phone_code, leading_zero=False, plus=True) :
 
 # Use cases
 # Key thing taken care of
-
 
 #     take care of leading zeros in from of numbers
 #     remove excess leading zeros

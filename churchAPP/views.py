@@ -3,13 +3,6 @@ from sqlalchemy import null
 from .auth import login_required
 from churchAPP import db
 
-
-
-
-
-
-
-
 views = Blueprint('views', __name__)
 
 # --------------------------------------------------------------------------- Builder ---------------------------------------
@@ -74,8 +67,7 @@ def home():
         this_year = currentDate["ThisYear"]
         this_month = currentDate["Month"]
         today = currentDate["Day"]
-        birth = db.execute(f"SELECT strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE account_id=?", churchId())
-                        
+        birth = db.execute(f"SELECT strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE account_id=?", churchId())                       
 
         # New Member
 
