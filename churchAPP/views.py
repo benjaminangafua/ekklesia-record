@@ -18,7 +18,7 @@ def landingPage():
         email = request.form.get("email")
 
         msg = Message('Thanks For Reaching Us!', sender = f'benjaminarkutl2017@gmail.com', recipients = [f'{email}'])
-        msg.body = f""" <h3>Hi {name} </h3> Thanks for reaching us we will get back to you shortly""" 
+        msg.body = f"""Hi {name}, Thanks for reaching us we will get back to you shortly.""" 
         mail.send(msg)
         print("n\Cool")
         # DELETE FROM table WHERE search_condition ORDER BY criteria LIMIT row_count OFFSET offset;
