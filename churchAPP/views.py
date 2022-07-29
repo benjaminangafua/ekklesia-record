@@ -1,25 +1,29 @@
+import imp
 from flask import Blueprint, render_template, request, redirect, flash, session
+from flask_mail import Mail, Message
 from sqlalchemy import null
 from .auth import login_required
 from churchAPP import db
-
 views = Blueprint('views', __name__)
 
 # --------------------------------------------------------------------------- Builder ---------------------------------------
-
+mail = Mail()
 # landing page
 @views.route("/", methods=["GET", "POST"])
 def landingPage():
     if request.method == "POST":
         name = request.form.get("name")
         tel = request.form.get("tel")
+        message = request.form.get("message")
+        email = request.form.get("email")
 
-        sender = request.form.get("email")
-        inputMessage = request.form.get("message")
-
+        msg = Message('Thanks For Reaching Us!', sender = f'benjaminarkutl2017@gmail.com', recipients = [f'{email}'])
+        msg.body = f""" <h3>Hi {name} </h3> Thanks for reaching us we will get back to you shortly""" 
+        mail.send(msg)
+        print("n\Cool")
         # DELETE FROM table WHERE search_condition ORDER BY criteria LIMIT row_count OFFSET offset;
-        # db.execute("INSERT INTO visitorRemark(name, tel, email, message, date) VALUES(?, ?, ?, ?, date('now'))", name, tel, email, message)
-        # print(db.execute("select * from visitorRemark"))
+        db.execute("INSERT INTO visitorRemark(name, tel, email, message, date) VALUES(?, ?, ?, ?, date('now'))", name, tel, email, message)
+        print(db.execute("select * from visitorRemark"))
         return redirect("/")
     return render_template("index.html")
 
