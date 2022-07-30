@@ -66,25 +66,18 @@ def loginAccount():
         admin_name = (request.form.get("admin_name")).lower(),
         password =request.form.get("password")
         )
-        debug = db.execute("SELECT * FROM account WHERE account_id > 3")
-
-        print(debug)
-
-
         if len(db.execute("SELECT * FROM account")) > 0:
+            if [name for name in db.execute("SELECT * FROM account") if name['admin_name'] == log["admin_name"]]:
+                user = [name for name in db.execute("SELECT * FROM account") if name['admin_name'] == 'blessing'][0]
+                if check_password_hash(user["password"], log["password"]):
 
-            user = db.execute("SELECT * FROM account WHERE admin_name like ?", log["admin_name"])[0]
-            if  log["admin_name"] != user["admin_name"]:
-                flash("User not provided", category="danger")
-                return redirect("/login")
-            if  not check_password_hash(user["password"], log["password"]):
-                 
-                flash("Invalid Password!", category="danger")
-                return redirect("/login")
+                    flash("Login was successful", category="success")
+                    session["user_id"] = user["account_id"]
+                    return redirect("/dashboard")
+                
             else:
-                session["user_id"] = user["account_id"]
-                flash("Login was successful", category="success")
-                return redirect("/dashboard")
+                flash("Invalid Username or Password!", category="danger")
+                return redirect("/login")
         else:
             return redirect("/register")
         
@@ -116,9 +109,6 @@ def login_required(view):
 def logout(): 
     session.pop("user_id",None)
     return redirect("/login")
-
-
-  
 
 def msisdn_sanitizer(msisdn, phone_code, leading_zero=False, plus=True) :
 
@@ -168,3 +158,4 @@ def msisdn_sanitizer(msisdn, phone_code, leading_zero=False, plus=True) :
 # print(msisdn_sanitizer("+234803000ben0000", "+234")) # +2348030000000
 # print(msisdn_sanitizer("+234000000080 3000 00 00","+234")) # +2348030000000
 # print(msisdn_sanitizer("+234234234234 80 3000 00 00","+234")) # +2348030000000
+

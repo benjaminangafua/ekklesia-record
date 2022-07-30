@@ -19,8 +19,7 @@ def landingPage():
 
         msg = Message('Thanks For Reaching Us!', sender = f'benjaminarkutl2017@gmail.com', recipients = [f'{email}'])
         msg.body = f"""Hi {name}, Thanks for reaching us we will get back to you shortly.""" 
-        mail.send(msg)
-        print("n\Cool")
+        mail.send(msg) 
         # DELETE FROM table WHERE search_condition ORDER BY criteria LIMIT row_count OFFSET offset;
         db.execute("INSERT INTO visitorRemark(name, tel, email, message, date) VALUES(?, ?, ?, ?, date('now'))", name, tel, email, message)
         print(db.execute("select * from visitorRemark"))
