@@ -339,7 +339,7 @@ button:active i {
         text-align: center;
     }
     .wrapper {
-        min-height: 0;
+        min-height: 100vh;
     }
     .reg-inner {
         margin: 5% auto;

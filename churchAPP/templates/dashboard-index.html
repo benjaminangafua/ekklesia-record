@@ -119,19 +119,11 @@
     new Chart(document.getElementById("bar-chart"), {
         type: 'bar',
         data: {
-            labels: {
-                {
-                    label | safe
-                }
-            },
+            labels: {{label|safe}},
             datasets: [{
                 label: "Church Growth",
                 backgroundColor: ["#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608"],
-                data: {
-                    {
-                        value | safe
-                    }
-                },
+                data: {{value|safe}},
                 borderRadius: 5,
             }]
         },

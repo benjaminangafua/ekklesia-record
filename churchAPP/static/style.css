@@ -3336,14 +3336,12 @@ a.btn {
     
     .member-form {
         width: 50% !important;
-        background-color: #f09608;
         padding: 10px 12px;
     }
     
     @media (max-width:960px) {
         .member-form {
             width: 100% !important;
-            background-color: #f09608;
             padding: 10px 12px;
             padding-top: 10px;
             padding-bottom: 10px;
