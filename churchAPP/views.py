@@ -189,8 +189,8 @@ def createMember():
                 # check for a specific church before inserting
 
                 if churchName():
-                    db.execute("INSERT INTO members(name, address, department_group, gender, contact, join_status, date_of_birth, mail, account_id, baptized, joined_date) VALUES(?, ?, ?, ?, ?,?,?,?,?, (SELECT account_id FROM account WHERE account_id=?), date('now'))",
-                            name, address, department,  gender, contact,join_status, date_of_birth, mail, baptized, churchId())
+                    db.execute("INSERT INTO members(name, address, department_group, gender, contact, join_status, date_of_birth, mail, account_id, joined_date) VALUES(?, ?, ?, ?,?,?,?,?, (SELECT account_id FROM account WHERE account_id=?), date('now'))",
+                            name, address, department,  gender, contact,join_status, date_of_birth, mail, churchId())
                     flash("Member created successful!",category="success")
                     
                     return redirect("/dashboard")
@@ -203,8 +203,8 @@ def createMember():
         else:
             # check for a specific church before inserting
             if churchName():
-                db.execute("INSERT INTO members(name, address, department_group, gender, contact, join_status, date_of_birth, mail, account_id,baptized, joined_date) VALUES(?, ?, ?, ?, ?,?,?,?, ?, (SELECT account_id FROM account WHERE account_id=?), date('now'))",
-                            name, address, department,  gender, contact,join_status, date_of_birth, mail,baptized, churchId())
+                db.execute("INSERT INTO members(name, address, department_group, gender, contact, join_status, date_of_birth, mail, account_id, joined_date) VALUES(?, ?, ?, ?,?,?,?, ?, (SELECT account_id FROM account WHERE account_id=?), date('now'))",
+                            name, address, department,  gender, contact,join_status, date_of_birth, mail, churchId())
                 flash("Member created successful!",category="success")
                 return redirect("/dashboard")
             else:
