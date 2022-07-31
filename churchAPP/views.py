@@ -161,6 +161,7 @@ def createMember():
         department = request.form.get("department")
         mail = request.form.get("mail")
         join_status = request.form.get("join_status")
+        baptized = request.form.get("baptize")
         
         # Check for existing church and members
         if len(db.execute("SELECT * FROM account")) > 0 and len(db.execute("SELECT * FROM members  WHERE account_id=?", churchId())) > 0: 
@@ -188,8 +189,8 @@ def createMember():
                 # check for a specific church before inserting
 
                 if churchName():
-                    db.execute("INSERT INTO members(name, address, department_group, gender, contact, join_status, date_of_birth, mail, account_id, joined_date) VALUES(?, ?, ?, ?, ?,?,?,?, (SELECT account_id FROM account WHERE account_id=?), date('now'))",
-                            name, address, department,  gender, contact,join_status, date_of_birth, mail, churchId())
+                    db.execute("INSERT INTO members(name, address, department_group, gender, contact, join_status, date_of_birth, mail, account_id, baptized, joined_date) VALUES(?, ?, ?, ?, ?,?,?,?,?, (SELECT account_id FROM account WHERE account_id=?), date('now'))",
+                            name, address, department,  gender, contact,join_status, date_of_birth, mail, baptized, churchId())
                     flash("Member created successful!",category="success")
                     
                     return redirect("/dashboard")
@@ -202,8 +203,8 @@ def createMember():
         else:
             # check for a specific church before inserting
             if churchName():
-                db.execute("INSERT INTO members(name, address, department_group, gender, contact, join_status, date_of_birth, mail, account_id, joined_date) VALUES(?, ?, ?, ?, ?,?,?,?, (SELECT account_id FROM account WHERE account_id=?), date('now'))",
-                            name, address, department,  gender, contact,join_status, date_of_birth, mail, churchId())
+                db.execute("INSERT INTO members(name, address, department_group, gender, contact, join_status, date_of_birth, mail, account_id,baptized, joined_date) VALUES(?, ?, ?, ?, ?,?,?,?, ?, (SELECT account_id FROM account WHERE account_id=?), date('now'))",
+                            name, address, department,  gender, contact,join_status, date_of_birth, mail,baptized, churchId())
                 flash("Member created successful!",category="success")
                 return redirect("/dashboard")
             else:
