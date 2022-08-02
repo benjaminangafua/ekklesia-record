@@ -1,4 +1,5 @@
 import imp
+from itertools import count
 from flask import Blueprint, render_template, request, redirect, flash, session
 from flask_mail import Mail, Message
 from sqlalchemy import null
@@ -9,8 +10,10 @@ views = Blueprint('views', __name__)
 # --------------------------------------------------------------------------- Builder ---------------------------------------
 mail = Mail()
 # landing page
+
 @views.route("/", methods=["GET", "POST"])
 def landingPage():
+
     if request.method == "POST":
         name = request.form.get("name")
         tel = request.form.get("tel")
@@ -59,8 +62,6 @@ def home():
         #Total women
         womenSum = len(db.execute('SELECT name FROM members WHERE gender LIKE "female" AND account_id=?', churchId()))
 
-        #Total Children
-        children = db.execute(f"SELECT strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE account_id=?", churchId())
         
         # Department's Section
         departmentSum = db.execute('SELECT COUNT(DISTINCT(department_group)) FROM members WHERE account_id=?', churchId())[0]['COUNT(DISTINCT(department_group))']
@@ -73,7 +74,11 @@ def home():
         birth = db.execute(f"SELECT strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE account_id=?", churchId())                       
 
         # New Member
-
+        year1 = db.execute("SELECT name, strftime('%Y',date_of_birth) as 'Year' FROM members WHERE account_id=?", churchId())
+        # print([num for num in year1 if int(this_year) - int(num["Year"]) < 18], " We are printed for testing" )
+        #Total Children
+        children =countChildren(year1, this_year)
+        
         # countConvert = db.execute("SELECT strftime('%Y',date_of_birth) as 'Year', strftime('%m',date_of_birth) as 'Month', strftime('%d',date_of_birth) as 'Day' FROM members WHERE join_status = 'New Convert' AND account_id=?", churchId())[0]
         # convertYear=getYear(this_year, countConvert["Year"], memberSum), convertMonth=getMonth(this_month, countConvert["Month"], memberSum),
         birth_sum_today=getADay(today, birth, memberSum)
@@ -98,7 +103,7 @@ def home():
 
         return render_template("dashboard-index.html", 
         birth_sum_today=getADay(today, birth, memberSum), birth_sum_this_month=0, label=labels, value=values,
-        departmentSum=departmentSum, men=menSum, women=womenSum, memberSum=memberSum,church=churchName())
+        departmentSum=departmentSum, men=menSum, women=womenSum, memberSum=memberSum,church=churchName(), childrenCount=children)
     else:
         return redirect("/add-new-member")
 def getYear(This_year, Db_Year,total_member ):
@@ -128,6 +133,10 @@ def getADay(today, Db_Day, total_member):
             return birth_day
         else:
             return birth_day
+def countChildren(birthYear, thisYear):
+    for num in birthYear:
+            if int(thisYear) - int(num["Year"]) < 18:
+                return int(db.execute("SELECT COUNT(name) FROM members WHERE account_id=?", churchId())[0]["COUNT(name)"])
 
 # Display members
 @views.route("/member")

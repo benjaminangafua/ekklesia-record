@@ -66,7 +66,7 @@
                         <i class="fa fa-child yellow_color"></i>
                     </div>
                     <div>
-                        <h4>{{memberSum}} </h4>
+                        <h4>{{childrenCount}} </h4>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="social_cont">
                     <div class="couter_icon">
-                        <i class="fa fa-child yellow_color"></i>
+                        <i class="fa fa-users yellow_color"></i>
                     </div>
                     <div>
                         <h4> This Month: 0</h4>
@@ -117,7 +117,7 @@
 <script>
     // Bar chart
     new Chart(document.getElementById("bar-chart"), {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: {{label|safe}},
             datasets: [{
@@ -125,6 +125,7 @@
                 backgroundColor: ["#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608"],
                 data: {{value|safe}},
                 borderRadius: 5,
+                // barThickness: 20
             }]
         },
         options: {
