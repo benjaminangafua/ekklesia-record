@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+<!-- Main container -->
+{% block innerContent%}
+<h3>Current Churches</h3>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Admin Name</th>
+            <th>Address</th>
+            <th>Joined Date</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <!--  -->
+        {% for data in visitor %}
+        <tr>
+            <td>{{data.account_id}}</td>
+            <td>{{data.name}} </td>
+            <td>{{data.phone}}</td>
+            <td>{{data.mail}}</td>
+            <td>{{data.admin_name}} </td>
+            <td>{{data.address}}</td>
+            <td>{{data.joined_date}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Visitor Feedback</h3>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <!--  -->
+        {% for data in fb %}
+        <tr>
+            <td>{{data.name}} </td>
+            <td>{{data.email}}</td>
+            <td>{{data.tel}}</td>
+            <td>{{data.message}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<!--End of block  -->
+{% endblock %}
+
+<!--  -->

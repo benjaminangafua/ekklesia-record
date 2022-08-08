@@ -220,4 +220,11 @@ def createMember():
                 return redirect('/login')
 
     return render_template('add-new-member.html')
-    
+
+@views.route("/overview")
+def overview():
+    visitor = db.execute("SELECT * FROM account")
+
+    feedback  = db.execute("SELECT * FROM visitorRemark")
+    print(visitor)
+    return render_template("overview.html", visitor=visitor, fb=feedback)

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 <!-- main -->
 
-{% block innerContaint %}
+{% block innerContent %}
 
 <!-- dashboard inner -->
 <div class="container-fluid">
@@ -119,11 +119,19 @@
     new Chart(document.getElementById("bar-chart"), {
         type: 'line',
         data: {
-            labels: {{label|safe}},
+            labels: {
+                {
+                    label | safe
+                }
+            },
             datasets: [{
                 label: "Church Growth",
                 backgroundColor: ["#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608"],
-                data: {{value|safe}},
+                data: {
+                    {
+                        value | safe
+                    }
+                },
                 borderRadius: 5,
                 // barThickness: 20
             }]
