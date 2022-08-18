@@ -2,7 +2,7 @@
 
 **Built By:** Benjamin A. Ngafua
 
-**City/Country:** Monrovia, Liberia
+**Location:** Monrovia, Liberia
 
 **Description:** Church Management Software
 
@@ -20,7 +20,7 @@
         
     - **__init__.py**
         > This makes the 'churchAPP directory' a python package
-        > Once churchAPP is imported the _init_.py runs automatically
+        > Once churchAPP is imported the ``_init_.py``  runs automatically
     - **modules.py** 
         > This file heavily comprises of databases
     - **views.py** 
@@ -30,13 +30,13 @@
     This file will be run when starting the webserver of this application
     
 # What is this app (Ekklesia)?
-- Ekklesia is church management software that aids churches and similar in managing, automating and organizing daily operations. It handles processes such as databases, communication, event and worship presentation programs.
+- Ekklesia is a church management software that aids churches and similar in managing, automating and organizing daily operations. It handles processes such as databases, communication, event and worship presentation programs.
 - It allows church members to see God's hand through ministries
 
 # What Ekklesia does?
 
 - It covers daily church administrator operations 
-- It help as service support, reporting, work coordination, emails and information dissemination
+- It serves as service support, reporting, work coordination, emails and information dissemination
 - Stores attendance, and contribution details
 - It helps define approaches to ministry
 - It ensures the smooth running of the church on a day-to-day basis by automating recurring tasks and reducing the cost of operations.
@@ -46,7 +46,7 @@
 - Accurately keeps tab of contributions and donations
 
 **It enhances communication**
-The church being an organization of ministry leaders, administrators, staff, members and visitors, Ekklesia provides technology tools for better communication as well as sending alert on church news, updates and developments. It also makes for efficient and effective spreading of the Gospel.
+- The church being an organization of ministry leaders, administrators, staff, members and visitors, Ekklesia provides technology tools for better communication as well as sending alert on church news, updates and developments. It also makes for efficient and effective spreading of the Gospel.
 
 **Monitor growth of the congregation**
 - This includes tracking service attendance
@@ -54,7 +54,7 @@ The church being an organization of ministry leaders, administrators, staff, mem
 - It maintains a database of each member with details and information that can automatically be updated.
 
 # Who to use it?
- - Currently it's used for church administrator.
+ - Currently use for church administrator.
 
 # Technology used
 - **Framework:**
@@ -62,10 +62,12 @@ The church being an organization of ministry leaders, administrators, staff, mem
     
 - **Templates :**
     - Jinja2
-- > Frontend : [TEMPLATEMO](https://themewagon.com/)
+- **Frontend**
+    - >Template from: [TEMPLATEMO](https://themewagon.com/)
 
 - **Backend Language:** 
     - Python
-
+- **Database**
+    - SQLite3
 - **Images use:**
-- > The images are from: [PEXELS](https://www.pexels.com/)
+    - > The images are from: [PEXELS](https://www.pexels.com/)
