@@ -41,9 +41,9 @@
 - It helps define approaches to ministry
 - It ensures the smooth running of the church on a day-to-day basis by automating recurring tasks and reducing the cost of operations.
     
-**It tracks and manages resources**
-- Accounting functionality and report to improve financial management
-- Accurately keeps tab of contributions and donations
+- It tracks and manages resources
+- >Accounting functionality and report to improve financial management
+- >Accurately keeps tab of contributions and donations
 
 **It enhances communication**
 The church being an organization of ministry leaders, administrators, staff, members and visitors, Ekklesia provides technology tools for better communication as well as sending alert on church news, updates and developments. It also makes for efficient and effective spreading of the Gospel.
@@ -62,10 +62,24 @@ The church being an organization of ministry leaders, administrators, staff, mem
     
 - **Templates :**
     - Jinja2
-- > Frontend : [TEMPLATEMO](https://themewagon.com/)
-
+- **Frontend**
+    - Template from: [TEMPLATEMO](https://themewagon.com/)
+- **Database:**
+    - SQLite
 - **Backend Language:** 
     - Python
 
 - **Images use:**
-- > The images are from: [PEXELS](https://www.pexels.com/)
+    - The images are from: [PEXELS](https://www.pexels.com/)
+
+
+Explanation about how to run Ekklesia: <br>
+`git clone` <br>
+
+### Features
+
+
+| Name      | Status |
+| --------- | -------- |
+| User Management      | Ongoing       |
+| Paragraph   | Text        |
