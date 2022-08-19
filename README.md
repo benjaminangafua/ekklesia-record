@@ -30,28 +30,21 @@
     This file will be run when starting the webserver of this application
     
 # What is this app (Ekklesia)?
-- Ekklesia is a church management software that aids churches and similar in managing, automating and organizing daily operations. It handles processes such as databases, communication, event and worship presentation programs.
+- Ekklesia is a church management software that aids churches and similar in managing, automating and organizing daily operations.
+
+# What Ekklesia does?     
 - It allows church members to see God's hand through ministries
 
-# What Ekklesia does?
-
-- It covers daily church administrator operations 
-- It serves as service support, reporting, work coordination, emails and information dissemination
-- Stores attendance, and contribution details
-- It helps define approaches to ministry
-- It ensures the smooth running of the church on a day-to-day basis by automating recurring tasks and reducing the cost of operations.
-    
-**It tracks and manages resources**
-- Accounting functionality and report to improve financial management
-- Accurately keeps tab of contributions and donations
+**It tracks and manages resources** 
+- Accurately keeps track of contributions and donations
+- It maintains a database of each member with details that can automatically be updated.
 
 **It enhances communication**
-- The church being an organization of ministry leaders, administrators, staff, members and visitors, Ekklesia provides technology tools for better communication as well as sending alert on church news, updates and developments. It also makes for efficient and effective spreading of the Gospel.
+- It serves as service support, reporting, work coordination, emails and information dissemination
 
-**Monitor growth of the congregation**
-- This includes tracking service attendance
-- Manages contacts and membership and prospecting for new members 
-- It maintains a database of each member with details and information that can automatically be updated.
+**Monitor growth of the congregation** 
+- It helps define approaches to ministry
+- It manages contacts and membership
 
 # Who to use it?
  - Currently use for church administrator.
@@ -72,3 +65,20 @@
 - **Images use:**
     - > The images are from: [PEXELS](https://www.pexels.com/)
 
+
+### Feature
+|Description |Status |
+|---------|------|
+| Store users | 80% |
+|Create Members | 80% |
+|Communicate to members| Yet to start|
+| Track financial transaction | Yet to start |
+
+### Setup
+To  install the packages in requirements.txt file
+
+Run 
+> ```pip3 freeze > requirements.txt``` 
+
+To run the app locally run
+>```flask run```
