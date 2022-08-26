@@ -75,7 +75,7 @@
 | Track financial transaction | Yet to start |
 
 ### Setup
-To  install the packages in requirements.txt file
+Install all the modules in requirements.txt file manually or 
 
 Run 
 > ```pip3 freeze > requirements.txt``` 
