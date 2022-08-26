@@ -11,15 +11,15 @@ Video Demo: [Benjamin A. Ngafua's cs50x Final Project](https://youtu.be/nzqE3m4D
 ## Ekklesia aim?     
 - It allows church members to see God's hand through ministries
 
-## What it is Used for
+### What it is used for?
 1. It tracks and manages resources
 2. It enhances communication
 3. Monitor growth of the congregation
 
-## Who to use it currently?
+### Who to use it currently?
  - Currently use for administrator.
 
-## Technology used
+### Technology used
 - **Framework:**
     - Flask
     
@@ -58,7 +58,7 @@ To run the app locally run
 If you are new to flask, you might want to learn a bit about flask [here](https://flask.palletsprojects.com/en/2.2.x/quickstart/) to get you started
 
 
-## Directories and Files:
+### Directories and Files:
 - **churchAPP:**
     - Comprises of all code that runs the application.
     - **static:**
