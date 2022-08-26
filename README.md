@@ -82,3 +82,4 @@ Run
 
 To run the app locally run
 >```flask run```
+If you are new to flask, you might want to learn a bit about flask [here](https://flask.palletsprojects.com/en/2.2.x/quickstart/) to get you started
