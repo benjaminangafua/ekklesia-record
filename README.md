@@ -1,20 +1,20 @@
-## About
+### About
 Project Title:   Ekklesia
 Built By:  Benjamin A. Ngafua
 Location: Monrovia, Liberia
 Description: Church Management Software
 Video Demo: [Benjamin A. Ngafua's cs50x Final Project](https://youtu.be/nzqE3m4DkJ8)
 
-## What is Ekklesia app?
+### What is Ekklesia app?
 - Ekklesia is a church management software that aids churches and similar in managing, automating and organizing daily operations.
 
-## Ekklesia aim?     
+### Ekklesia aim?     
 - It allows church members to see God's hand through ministries
 
 ### What it is used for?
 1. It tracks and manages resources
 2. It enhances communication
-3. Monitor growth of the congregation
+3. It monitors church growth
 
 ### Who to use it currently?
  - Currently use for administrator.
