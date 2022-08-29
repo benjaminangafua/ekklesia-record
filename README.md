@@ -46,7 +46,12 @@ Video Demo: [Benjamin A. Ngafua's cs50x Final Project](https://youtu.be/nzqE3m4D
 | Track financial transaction | Yet to start |
 
 ### Setup
-Install all the modules in requirements.txt file manually or 
+Install all the modules in requirements.txt file manually
+Run
+```
+pip3 install <module>
+```
+or 
 
 Run 
 > ```pip3 freeze > requirements.txt``` 
