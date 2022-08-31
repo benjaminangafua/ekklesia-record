@@ -36,6 +36,7 @@
 # Feature
 |Description |Status |
 |---------|------|
+|Landing page|90%|
 |Dashboard statistics | 80%|
 | Store users | 80% |
 |Create Members | 80% |
