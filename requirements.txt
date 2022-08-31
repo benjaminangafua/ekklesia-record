@@ -1,8 +1,10 @@
 Flask
-gunicorn
 jinja2
-psycopg2
 requests
 cs50
 flask-session
 Flask-Mail
+
+# The below modules are needed for heroku setup
+# gunicorn
+# psycopg2
