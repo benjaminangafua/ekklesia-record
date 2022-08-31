@@ -1,25 +1,22 @@
-### About
-Project Title:   Ekklesia
-Built By:  Benjamin A. Ngafua
-Location: Monrovia, Liberia
-Description: Church Management Software
-Video Demo: [Benjamin A. Ngafua's cs50x Final Project](https://youtu.be/nzqE3m4DkJ8)
+# About
+**Project Title:**   Ekklesia<br>
+**Built By:**  Benjamin A. Ngafua<br>
+**Location:** Monrovia, Liberia<br>
+**IDescription:** Church Management Software<br>
+**Video Demo:** [Benjamin A. Ngafua's cs50x Final Project](https://youtu.be/nzqE3m4DkJ8)
 
-### What is Ekklesia app?
+# What is Ekklesia?
 - Ekklesia is a church management software that aids churches and similar in managing, automating and organizing daily operations.
 
-### Ekklesia aim?     
 - It allows church members to see God's hand through ministries
 
-### What it is used for?
+# What it is used for?
 1. It tracks and manages resources
 2. It enhances communication
 3. It monitors church growth
+4. Currently use for administrator.
 
-### Who to use it currently?
- - Currently use for administrator.
-
-### Technology used
+# Technology used
 - **Framework:**
     - Flask
     
@@ -36,7 +33,7 @@ Video Demo: [Benjamin A. Ngafua's cs50x Final Project](https://youtu.be/nzqE3m4D
     - > The images are from: [PEXELS](https://www.pexels.com/)
 
 
-### Feature
+# Feature
 |Description |Status |
 |---------|------|
 |Dashboard statistics | 80%|
@@ -45,25 +42,58 @@ Video Demo: [Benjamin A. Ngafua's cs50x Final Project](https://youtu.be/nzqE3m4D
 |Communicate to members| Yet to start|
 | Track financial transaction | Yet to start |
 
-### Setup
-Install all the modules in requirements.txt file manually
-Run
+# Requirements
+Install all the modules in requirements.txt file to get access to all the functionalities and packages
+
+> Manually install each module by running
 ```
 pip3 install <module>
 ```
-or 
 
-Run 
-> ```pip3 freeze > requirements.txt``` 
+<br>
 
-To run the app locally run
->```flask run```
+> Automatically install all the modules by running
+
+```
+pip3 install -Ur requirements.txt
+``` 
+
+<br>
+
+## Virtual environments
+Virtual environments are independent groups of Python libraries, one for each project.
+Python comes bundled with the venv module to create virtual environments and install packages for a project that do not affect other projects on your computer.
+Let's setup our   [venv](https://docs.python.org/3/library/venv.html#module-venv)
+<br>
+## Create an environment
+Create a project folder and a<b style="color: orange;"> venv </b> folder within: 
+
+> macOS/Linux
+```
+$ python3 -m venv venv
+```
+
+## Activate the environment
+
+Before you work on this project, activate the corresponding environment:
+
+> macOS/Linux
+```
+. venv/bin/activate
+```
+
+
+To run the app
+```
+flask run
+```
 
 
 If you are new to flask, you might want to learn a bit about flask [here](https://flask.palletsprojects.com/en/2.2.x/quickstart/) to get you started
+<br>
+<br>
 
-
-### Directories and Files:
+# Directories and Files:
 - **churchAPP:**
     - Comprises of all code that runs the application.
     - **static:**
@@ -81,5 +111,5 @@ If you are new to flask, you might want to learn a bit about flask [here](https:
         > Main views, it controls all url endpoints for routing
         > It also deals with functionality on the frontend data 
 - **app.py**
-    This file will be run when starting the webserver of this application
+    This file will be run when starting the web server of this application
     
