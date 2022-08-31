@@ -66,7 +66,7 @@ Python comes bundled with the venv module to create virtual environments and ins
 Let's setup our   [venv](https://docs.python.org/3/library/venv.html#module-venv)
 <br>
 ## Create an environment
-Create a project folder and a<b style="color: orange;"> venv </b> folder within: 
+Create a the folder<b style="color: orange;"> venv </b> within this `home` directory: 
 
 > macOS/Linux
 ```
@@ -83,7 +83,7 @@ Before you work on this project, activate the corresponding environment:
 ```
 
 
-To run the app
+Run the app
 ```
 flask run
 ```
@@ -111,5 +111,12 @@ If you are new to flask, you might want to learn a bit about flask [here](https:
         > Main views, it controls all url endpoints for routing
         > It also deals with functionality on the frontend data 
 - **app.py**
-    This file will be run when starting the web server of this application
-    
+    > This file will be run when starting the web server of this application
+- **requirements.txt**
+    > This file comprises of all the packages that supports this application. The packages need to be install before getting started
+- **Procfile, Gemfile**
+    > These files are used for the hosting of this app on `Heroku`
+- **church.db**
+    > The database that stores all the queries info
+- **README.md**
+    > Comprises of the application's detail
