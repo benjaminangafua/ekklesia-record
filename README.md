@@ -10,7 +10,7 @@
 
 - It allows church members to see God's hand through ministries
 
-# What it is used for?
+# Purpose?
 1. It tracks and manages resources
 2. It enhances communication
 3. It monitors church growth
