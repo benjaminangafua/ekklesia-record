@@ -2,7 +2,7 @@
 **Project Title:**   Ekklesia<br>
 **Built By:**  Benjamin A. Ngafua<br>
 **Location:** Monrovia, Liberia<br>
-**IDescription:** Church Management Software<br>
+**Description:** Church Management Software<br>
 **Video Demo:** [Benjamin A. Ngafua's cs50x Final Project](https://youtu.be/nzqE3m4DkJ8)
 
 # What is Ekklesia?
@@ -10,7 +10,7 @@
 
 - It allows church members to see God's hand through ministries
 
-# Purpose?
+# Functions?
 1. It tracks and manages resources
 2. It enhances communication
 3. It monitors church growth
@@ -40,11 +40,11 @@
 |Dashboard statistics | 80%|
 | Store users | 80% |
 |Create Members | 80% |
-|Communicate to members| Yet to start|
-| Track financial transaction | Yet to start |
+|Communicate to members| Yet to be started|
+| Track financial transaction | Yet to be started |
 
 # Requirements
-Install all the modules in requirements.txt file to get access to all the functionalities and packages
+Install all the modules in requirements.txt file to get access to all the functionalities and packages running well
 
 > Manually install each module by running
 ```
