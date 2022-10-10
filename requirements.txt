@@ -4,7 +4,7 @@ requests
 cs50
 flask-session
 Flask-Mail
-
+python-dotenv
 # The below modules are needed for heroku setup
 # gunicorn
 # psycopg2
