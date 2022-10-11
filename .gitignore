@@ -1,3 +1,4 @@
+.env
 # DELETE FROM table WHERE search_condition ------------------------ Delete content
 # ALTER TABLE table_name ADD COLUMN column_definition; ------------ Add new Column
 # ALTER TABLE existing_table RENAME TO new_table; ----------------- Rename Table
