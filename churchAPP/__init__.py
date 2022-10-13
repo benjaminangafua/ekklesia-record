@@ -25,6 +25,8 @@ def create_app():
     app.config['MAIL_USERNAME'] = config['MAIL_USERNAME']
     app.config['MAIL_PASSWORD'] = config['MAIL_PASSWORD']
     app.config['MAIL_USE_TLS'] = True
+    # export FLASK_DEBUG=1
+
     mail = Mail(app)
     # Initialize blueprints
     

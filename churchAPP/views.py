@@ -100,7 +100,7 @@ def home():
 
         labels = [row[0] for row in data]
         values = [row[1] for row in data]
-
+        print(values, labels)
         return render_template("dashboard-index.html", 
         birth_sum_today=getADay(today, birth, memberSum), birth_sum_this_month=0, label=labels, value=values,
         departmentSum=departmentSum, men=menSum, women=womenSum, memberSum=memberSum,church=churchName(), childrenCount=children)

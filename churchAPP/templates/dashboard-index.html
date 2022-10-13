@@ -116,29 +116,27 @@
 <!-- end dashboard inner -->
 <script>
     // Bar chart
+            
+    const value = JSON.parse("{{value|safe}}")
+    services = "['service1', 'service2', 'service3']"
+
+    const label = JSON.parse("{{label|safe}}".replace(/'/g, '"') )
+    
     new Chart(document.getElementById("bar-chart"), {
         type: 'line',
         data: {
-            labels: {
-                {
-                    label | safe
-                }
-            },
+            labels: label ,
             datasets: [{
                 label: "Church Growth",
                 backgroundColor: ["#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608", "#070122", "#F09608"],
-                data: {
-                    {
-                        value | safe
-                    }
-                },
+                data: value,
                 borderRadius: 5,
                 // barThickness: 20
             }]
         },
         options: {
             legend: {
-                display: false
+                display: true
             },
             title: {
                 display: true,
